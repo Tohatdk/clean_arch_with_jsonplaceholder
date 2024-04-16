@@ -17,9 +17,9 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       final loadingPageBloc = BlocProvider.of<UserDetailsPageBloc>(context);
-      loadingPageBloc.add(LoadInitialEvent());
+      loadingPageBloc.add(LoadInitialEvent(widget.user.id));
     });
   }
 
@@ -95,7 +95,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                   GridView.builder(
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
-                      childAspectRatio: 4/ 4,
+                      childAspectRatio: 1,
                       mainAxisSpacing: 8, // Отступ между строками
                       crossAxisSpacing: 8, // Отступ между столбцами
                       // Соотношение сторон элементов
@@ -137,6 +137,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                         elevation: 4, // Добавляем тень для карточки
                         child: ListTile(
+
                           contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16), // Отступы внутри ListTile
                           title: Text(
                             post.title,
@@ -150,18 +151,20 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                             post.body,
                             style: const TextStyle(
                               fontSize: 14, // Изменяем размер шрифта подзаголовка
-                              color: Colors.grey, // Изменяем цвет текста подзаголовка
+                              color: Colors.black, // Изменяем цвет текста подзаголовка
                             ),
                           ),
                           trailing: IconButton(
-                            icon: Icon(Icons.comment),
+                            icon: const Icon(Icons.comment),
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CommentPage(postId: post.id),
-                                ),
+                            showModalBottomSheet(context: context, builder: (BuildContext context){
+                              return const SizedBox(
+                                height: 800,
+                               child: Center(
+                             child:  Text('close'),
+                               ),
                               );
+                            });
                             },
                           ),
                         ),

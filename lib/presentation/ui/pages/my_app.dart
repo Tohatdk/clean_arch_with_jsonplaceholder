@@ -16,22 +16,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
+    return
         BlocProvider(
           create: (context) => HomePageBloc(
             getUsersUseCase: getIt.get<GetUsersUseCase>(),
           )..add(LoadingStartEvent()),
-        ),
-        BlocProvider(
-            create: (context) => UserDetailsPageBloc(
-                getPostsUseCase: getIt<GetPostsUseCase>(),
-                getAlbumsUseCase: getIt<GetAlbumsUseCase>(),
-                getPhotosUseCase: getIt<GetPhotosUseCase>(),
-                getCommentsUseCase: getIt<GetCommentsUseCase>(),
-                getTodosUseCase: getIt<GetTodosUseCase>()))
-      ],
-      child: const MaterialApp(
+          child: const MaterialApp(
         title: 'Flutter Demo',
         home: LoadingPage(),
       ),

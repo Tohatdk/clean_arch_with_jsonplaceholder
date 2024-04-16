@@ -20,6 +20,7 @@ mixin _$PostViewModel {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
+  List<CommentViewModel> get comments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PostViewModelCopyWith<PostViewModel> get copyWith =>
@@ -32,7 +33,12 @@ abstract class $PostViewModelCopyWith<$Res> {
           PostViewModel value, $Res Function(PostViewModel) then) =
       _$PostViewModelCopyWithImpl<$Res, PostViewModel>;
   @useResult
-  $Res call({int userId, int id, String title, String body});
+  $Res call(
+      {int userId,
+      int id,
+      String title,
+      String body,
+      List<CommentViewModel> comments});
 }
 
 /// @nodoc
@@ -52,6 +58,7 @@ class _$PostViewModelCopyWithImpl<$Res, $Val extends PostViewModel>
     Object? id = null,
     Object? title = null,
     Object? body = null,
+    Object? comments = null,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -70,6 +77,10 @@ class _$PostViewModelCopyWithImpl<$Res, $Val extends PostViewModel>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
+      comments: null == comments
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<CommentViewModel>,
     ) as $Val);
   }
 }
@@ -82,7 +93,12 @@ abstract class _$$PostViewModelImplCopyWith<$Res>
       __$$PostViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int userId, int id, String title, String body});
+  $Res call(
+      {int userId,
+      int id,
+      String title,
+      String body,
+      List<CommentViewModel> comments});
 }
 
 /// @nodoc
@@ -100,6 +116,7 @@ class __$$PostViewModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? body = null,
+    Object? comments = null,
   }) {
     return _then(_$PostViewModelImpl(
       userId: null == userId
@@ -118,6 +135,10 @@ class __$$PostViewModelImplCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
+      comments: null == comments
+          ? _value._comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<CommentViewModel>,
     ));
   }
 }
@@ -129,7 +150,9 @@ class _$PostViewModelImpl implements _PostViewModel {
       {required this.userId,
       required this.id,
       required this.title,
-      required this.body});
+      required this.body,
+      final List<CommentViewModel> comments = const []})
+      : _comments = comments;
 
   @override
   final int userId;
@@ -139,10 +162,18 @@ class _$PostViewModelImpl implements _PostViewModel {
   final String title;
   @override
   final String body;
+  final List<CommentViewModel> _comments;
+  @override
+  @JsonKey()
+  List<CommentViewModel> get comments {
+    if (_comments is EqualUnmodifiableListView) return _comments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_comments);
+  }
 
   @override
   String toString() {
-    return 'PostViewModel(userId: $userId, id: $id, title: $title, body: $body)';
+    return 'PostViewModel(userId: $userId, id: $id, title: $title, body: $body, comments: $comments)';
   }
 
   @override
@@ -153,11 +184,13 @@ class _$PostViewModelImpl implements _PostViewModel {
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.body, body) || other.body == body));
+            (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other._comments, _comments));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userId, id, title, body);
+  int get hashCode => Object.hash(runtimeType, userId, id, title, body,
+      const DeepCollectionEquality().hash(_comments));
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +204,8 @@ abstract class _PostViewModel implements PostViewModel {
       {required final int userId,
       required final int id,
       required final String title,
-      required final String body}) = _$PostViewModelImpl;
+      required final String body,
+      final List<CommentViewModel> comments}) = _$PostViewModelImpl;
 
   @override
   int get userId;
@@ -181,6 +215,8 @@ abstract class _PostViewModel implements PostViewModel {
   String get title;
   @override
   String get body;
+  @override
+  List<CommentViewModel> get comments;
   @override
   @JsonKey(ignore: true)
   _$$PostViewModelImplCopyWith<_$PostViewModelImpl> get copyWith =>

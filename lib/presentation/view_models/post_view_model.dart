@@ -1,5 +1,6 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:progress_bar/presentation/view_models/comment_view_model.dart';
 part 'post_view_model.freezed.dart';
 @freezed
 class PostViewModel with _$PostViewModel {
@@ -8,5 +9,6 @@ class PostViewModel with _$PostViewModel {
     required int id,
     required String title,
     required String body,
+   @Default([])List<CommentViewModel> comments,
   }) = _PostViewModel;
 }

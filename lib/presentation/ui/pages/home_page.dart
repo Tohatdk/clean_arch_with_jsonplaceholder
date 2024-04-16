@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:progress_bar/di_dart.dart';
+import 'package:progress_bar/domain/use_case/get_album_usecase.dart';
+import 'package:progress_bar/domain/use_case/get_comment_usecase.dart';
+import 'package:progress_bar/domain/use_case/get_photo_usecase.dart';
+import 'package:progress_bar/domain/use_case/get_post_uscase.dart';
+import 'package:progress_bar/domain/use_case/get_todo_usecase.dart';
 import 'package:progress_bar/presentation/bloc/home_page_bloc/home_page_bloc.dart';
+import 'package:progress_bar/presentation/bloc/user_detalis_page_bloc/user_details_page_bloc.dart';
 import 'package:progress_bar/presentation/ui/pages/user_detalis_page.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -41,7 +48,17 @@ class MyHomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  UserDetailsPage (user: user,),
+                          builder: (context) => BlocProvider(
+                            create: (context) => UserDetailsPageBloc(
+
+                              getPostsUseCase: getIt<GetPostsUseCase>(),
+                              getAlbumsUseCase: getIt<GetAlbumsUseCase>(),
+                              getPhotosUseCase: getIt<GetPhotosUseCase>(),
+                              getCommentsUseCase: getIt<GetCommentsUseCase>(),
+                              getTodosUseCase: getIt<GetTodosUseCase>(),
+                            ),
+                            child: UserDetailsPage(user: user),
+                          ),
                         ),
                      );
                     },

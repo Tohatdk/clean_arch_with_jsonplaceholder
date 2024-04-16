@@ -17,15 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$UserDetailsPageState {
   List<PostViewModel> get postViewModelList =>
-      throw _privateConstructorUsedError;
-  List<PhotoViewModel> get photoViewModelList =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // @Default([]) List<PhotoViewModel> photoViewModelList,
   List<AlbumViewModel> get albumViewModelList =>
       throw _privateConstructorUsedError;
   List<TodoViewModel> get todoViewModelList =>
-      throw _privateConstructorUsedError;
-  List<CommentViewModel> get commentViewModelList =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // @Default([]) List<CommentViewModel> commentViewModelList,
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -41,10 +37,8 @@ abstract class $UserDetailsPageStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<PostViewModel> postViewModelList,
-      List<PhotoViewModel> photoViewModelList,
       List<AlbumViewModel> albumViewModelList,
       List<TodoViewModel> todoViewModelList,
-      List<CommentViewModel> commentViewModelList,
       bool isLoading});
 }
 
@@ -63,10 +57,8 @@ class _$UserDetailsPageStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? postViewModelList = null,
-    Object? photoViewModelList = null,
     Object? albumViewModelList = null,
     Object? todoViewModelList = null,
-    Object? commentViewModelList = null,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
@@ -74,10 +66,6 @@ class _$UserDetailsPageStateCopyWithImpl<$Res,
           ? _value.postViewModelList
           : postViewModelList // ignore: cast_nullable_to_non_nullable
               as List<PostViewModel>,
-      photoViewModelList: null == photoViewModelList
-          ? _value.photoViewModelList
-          : photoViewModelList // ignore: cast_nullable_to_non_nullable
-              as List<PhotoViewModel>,
       albumViewModelList: null == albumViewModelList
           ? _value.albumViewModelList
           : albumViewModelList // ignore: cast_nullable_to_non_nullable
@@ -86,10 +74,6 @@ class _$UserDetailsPageStateCopyWithImpl<$Res,
           ? _value.todoViewModelList
           : todoViewModelList // ignore: cast_nullable_to_non_nullable
               as List<TodoViewModel>,
-      commentViewModelList: null == commentViewModelList
-          ? _value.commentViewModelList
-          : commentViewModelList // ignore: cast_nullable_to_non_nullable
-              as List<CommentViewModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -108,10 +92,8 @@ abstract class _$$UserDetailsPageStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<PostViewModel> postViewModelList,
-      List<PhotoViewModel> photoViewModelList,
       List<AlbumViewModel> albumViewModelList,
       List<TodoViewModel> todoViewModelList,
-      List<CommentViewModel> commentViewModelList,
       bool isLoading});
 }
 
@@ -127,10 +109,8 @@ class __$$UserDetailsPageStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postViewModelList = null,
-    Object? photoViewModelList = null,
     Object? albumViewModelList = null,
     Object? todoViewModelList = null,
-    Object? commentViewModelList = null,
     Object? isLoading = null,
   }) {
     return _then(_$UserDetailsPageStateImpl(
@@ -138,10 +118,6 @@ class __$$UserDetailsPageStateImplCopyWithImpl<$Res>
           ? _value._postViewModelList
           : postViewModelList // ignore: cast_nullable_to_non_nullable
               as List<PostViewModel>,
-      photoViewModelList: null == photoViewModelList
-          ? _value._photoViewModelList
-          : photoViewModelList // ignore: cast_nullable_to_non_nullable
-              as List<PhotoViewModel>,
       albumViewModelList: null == albumViewModelList
           ? _value._albumViewModelList
           : albumViewModelList // ignore: cast_nullable_to_non_nullable
@@ -150,10 +126,6 @@ class __$$UserDetailsPageStateImplCopyWithImpl<$Res>
           ? _value._todoViewModelList
           : todoViewModelList // ignore: cast_nullable_to_non_nullable
               as List<TodoViewModel>,
-      commentViewModelList: null == commentViewModelList
-          ? _value._commentViewModelList
-          : commentViewModelList // ignore: cast_nullable_to_non_nullable
-              as List<CommentViewModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -167,16 +139,12 @@ class __$$UserDetailsPageStateImplCopyWithImpl<$Res>
 class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
   const _$UserDetailsPageStateImpl(
       {final List<PostViewModel> postViewModelList = const [],
-      final List<PhotoViewModel> photoViewModelList = const [],
       final List<AlbumViewModel> albumViewModelList = const [],
       final List<TodoViewModel> todoViewModelList = const [],
-      final List<CommentViewModel> commentViewModelList = const [],
       this.isLoading = false})
       : _postViewModelList = postViewModelList,
-        _photoViewModelList = photoViewModelList,
         _albumViewModelList = albumViewModelList,
-        _todoViewModelList = todoViewModelList,
-        _commentViewModelList = commentViewModelList;
+        _todoViewModelList = todoViewModelList;
 
   final List<PostViewModel> _postViewModelList;
   @override
@@ -188,17 +156,9 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
     return EqualUnmodifiableListView(_postViewModelList);
   }
 
-  final List<PhotoViewModel> _photoViewModelList;
-  @override
-  @JsonKey()
-  List<PhotoViewModel> get photoViewModelList {
-    if (_photoViewModelList is EqualUnmodifiableListView)
-      return _photoViewModelList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_photoViewModelList);
-  }
-
+// @Default([]) List<PhotoViewModel> photoViewModelList,
   final List<AlbumViewModel> _albumViewModelList;
+// @Default([]) List<PhotoViewModel> photoViewModelList,
   @override
   @JsonKey()
   List<AlbumViewModel> get albumViewModelList {
@@ -218,23 +178,14 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
     return EqualUnmodifiableListView(_todoViewModelList);
   }
 
-  final List<CommentViewModel> _commentViewModelList;
-  @override
-  @JsonKey()
-  List<CommentViewModel> get commentViewModelList {
-    if (_commentViewModelList is EqualUnmodifiableListView)
-      return _commentViewModelList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_commentViewModelList);
-  }
-
+// @Default([]) List<CommentViewModel> commentViewModelList,
   @override
   @JsonKey()
   final bool isLoading;
 
   @override
   String toString() {
-    return 'UserDetailsPageState(postViewModelList: $postViewModelList, photoViewModelList: $photoViewModelList, albumViewModelList: $albumViewModelList, todoViewModelList: $todoViewModelList, commentViewModelList: $commentViewModelList, isLoading: $isLoading)';
+    return 'UserDetailsPageState(postViewModelList: $postViewModelList, albumViewModelList: $albumViewModelList, todoViewModelList: $todoViewModelList, isLoading: $isLoading)';
   }
 
   @override
@@ -245,13 +196,9 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
             const DeepCollectionEquality()
                 .equals(other._postViewModelList, _postViewModelList) &&
             const DeepCollectionEquality()
-                .equals(other._photoViewModelList, _photoViewModelList) &&
-            const DeepCollectionEquality()
                 .equals(other._albumViewModelList, _albumViewModelList) &&
             const DeepCollectionEquality()
                 .equals(other._todoViewModelList, _todoViewModelList) &&
-            const DeepCollectionEquality()
-                .equals(other._commentViewModelList, _commentViewModelList) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -260,10 +207,8 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_postViewModelList),
-      const DeepCollectionEquality().hash(_photoViewModelList),
       const DeepCollectionEquality().hash(_albumViewModelList),
       const DeepCollectionEquality().hash(_todoViewModelList),
-      const DeepCollectionEquality().hash(_commentViewModelList),
       isLoading);
 
   @JsonKey(ignore: true)
@@ -278,23 +223,17 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
 abstract class _UserDetailsPageState implements UserDetailsPageState {
   const factory _UserDetailsPageState(
       {final List<PostViewModel> postViewModelList,
-      final List<PhotoViewModel> photoViewModelList,
       final List<AlbumViewModel> albumViewModelList,
       final List<TodoViewModel> todoViewModelList,
-      final List<CommentViewModel> commentViewModelList,
       final bool isLoading}) = _$UserDetailsPageStateImpl;
 
   @override
   List<PostViewModel> get postViewModelList;
-  @override
-  List<PhotoViewModel> get photoViewModelList;
-  @override
+  @override // @Default([]) List<PhotoViewModel> photoViewModelList,
   List<AlbumViewModel> get albumViewModelList;
   @override
   List<TodoViewModel> get todoViewModelList;
-  @override
-  List<CommentViewModel> get commentViewModelList;
-  @override
+  @override // @Default([]) List<CommentViewModel> commentViewModelList,
   bool get isLoading;
   @override
   @JsonKey(ignore: true)

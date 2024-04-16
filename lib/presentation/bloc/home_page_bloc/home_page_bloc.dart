@@ -3,11 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:progress_bar/domain/use_case/get_user_uscase.dart';
-import 'package:progress_bar/presentation/view_models/album_view_model.dart';
-import 'package:progress_bar/presentation/view_models/comment_view_model.dart';
-import 'package:progress_bar/presentation/view_models/photo_view_model.dart';
-import 'package:progress_bar/presentation/view_models/post_view_model.dart';
-import 'package:progress_bar/presentation/view_models/todo_view_model.dart';
+
 import 'package:progress_bar/presentation/view_models/user_view_model.dart';
 
 part 'home_page_bloc.freezed.dart';

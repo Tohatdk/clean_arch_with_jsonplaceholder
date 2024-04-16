@@ -1,13 +1,14 @@
 // Ваш виджет для страницы комментариев
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:progress_bar/presentation/bloc/user_detalis_page_bloc/user_details_page_bloc.dart';
+import 'package:progress_bar/presentation/view_models/comment_view_model.dart';
+
 
 // Ваш виджет для страницы комментариев
 class CommentPage extends StatelessWidget {
-  final int postId; // Идентификатор поста
+  final int postId;// Идентификатор поста
+   final List<CommentViewModel> commentViewModelList;
 
-  const CommentPage({Key? key, required this.postId}) : super(key: key);
+  const CommentPage({Key? key, required this.postId,  required this.commentViewModelList,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +17,10 @@ class CommentPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Комментарии к посту $postId'),
       ),
-      body: BlocBuilder<UserDetailsPageBloc, UserDetailsPageState>(
-        builder: (context, state) {
-          // Отображение списка комментариев для выбранного поста
-          return ListView.builder(
-            itemCount: state.commentViewModelList.length,
+      body: ListView.builder(
+            itemCount: commentViewModelList.length,
             itemBuilder: (context, index) {
-              final comment = state.commentViewModelList[index];
+              final comment = commentViewModelList[index];
               // Отображение только комментариев для выбранного поста
               if (comment.postId == postId) {
                 return Card(
@@ -46,9 +44,8 @@ class CommentPage extends StatelessWidget {
                 return const SizedBox.shrink();
               }
             },
-          );
-        },
-      ),
+          ),
+
     );
   }
 }
