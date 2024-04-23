@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "667791985478",
+    "project_id": "pushnotitutorial-75506",
+    "storage_bucket": "pushnotitutorial-75506.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667791985478:android:f024b7074f51ca89423347",
+        "android_client_info": {
+          "package_name": "com.example.progress_bar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlud8jPJ6IEyuv2TRbNZbGjZ5a3mDiEH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667791985478:android:890dd2c9ee27ecce423347",
+        "android_client_info": {
+          "package_name": "kz.tohawow.cleanarch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlud8jPJ6IEyuv2TRbNZbGjZ5a3mDiEH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
