@@ -17,11 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$UserDetailsPageState {
   List<PostViewModel> get postViewModelList =>
-      throw _privateConstructorUsedError; // @Default([]) List<PhotoViewModel> photoViewModelList,
+      throw _privateConstructorUsedError;
   List<AlbumViewModel> get albumViewModelList =>
       throw _privateConstructorUsedError;
   List<TodoViewModel> get todoViewModelList =>
-      throw _privateConstructorUsedError; // @Default([]) List<CommentViewModel> commentViewModelList,
+      throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -136,7 +136,7 @@ class __$$UserDetailsPageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
+class _$UserDetailsPageStateImpl extends _UserDetailsPageState {
   const _$UserDetailsPageStateImpl(
       {final List<PostViewModel> postViewModelList = const [],
       final List<AlbumViewModel> albumViewModelList = const [],
@@ -144,7 +144,8 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
       this.isLoading = false})
       : _postViewModelList = postViewModelList,
         _albumViewModelList = albumViewModelList,
-        _todoViewModelList = todoViewModelList;
+        _todoViewModelList = todoViewModelList,
+        super._();
 
   final List<PostViewModel> _postViewModelList;
   @override
@@ -156,9 +157,7 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
     return EqualUnmodifiableListView(_postViewModelList);
   }
 
-// @Default([]) List<PhotoViewModel> photoViewModelList,
   final List<AlbumViewModel> _albumViewModelList;
-// @Default([]) List<PhotoViewModel> photoViewModelList,
   @override
   @JsonKey()
   List<AlbumViewModel> get albumViewModelList {
@@ -178,7 +177,6 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
     return EqualUnmodifiableListView(_todoViewModelList);
   }
 
-// @Default([]) List<CommentViewModel> commentViewModelList,
   @override
   @JsonKey()
   final bool isLoading;
@@ -220,20 +218,21 @@ class _$UserDetailsPageStateImpl implements _UserDetailsPageState {
               this, _$identity);
 }
 
-abstract class _UserDetailsPageState implements UserDetailsPageState {
+abstract class _UserDetailsPageState extends UserDetailsPageState {
   const factory _UserDetailsPageState(
       {final List<PostViewModel> postViewModelList,
       final List<AlbumViewModel> albumViewModelList,
       final List<TodoViewModel> todoViewModelList,
       final bool isLoading}) = _$UserDetailsPageStateImpl;
+  const _UserDetailsPageState._() : super._();
 
   @override
   List<PostViewModel> get postViewModelList;
-  @override // @Default([]) List<PhotoViewModel> photoViewModelList,
+  @override
   List<AlbumViewModel> get albumViewModelList;
   @override
   List<TodoViewModel> get todoViewModelList;
-  @override // @Default([]) List<CommentViewModel> commentViewModelList,
+  @override
   bool get isLoading;
   @override
   @JsonKey(ignore: true)

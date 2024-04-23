@@ -86,8 +86,7 @@ class UserDetailsPageBloc
 
   List<PhotoViewModel> _filterPhotosByAlbumId(
       AlbumEntity albumEntity, List<PhotoEntity> photos) {
-    final photoViewModels = photos
-        .where((photo) => photo.albumId == albumEntity.id)
+    final photoViewModels = photos.where((photo) => photo.albumId == albumEntity.id)
         .map((e) => PhotoViewModel(
               albumId: e.albumId,
               id: e.id,
@@ -116,7 +115,7 @@ class UserDetailsPageBloc
 
   List<CommentViewModel> _filterCommentsByPostId(
       PostEntity postEntity, List<CommentEntity> comments) {
-    final commentViewModels = comments
+    final commentViewModels = comments.where((comment) => comment.postId==postEntity.id)
         .map((e) => CommentViewModel(
             postId: e.postId,
             id: e.id,
@@ -128,8 +127,8 @@ class UserDetailsPageBloc
   }
 
   Future<List<TodoViewModel>> fetchTodos(int userId) async {
-    final todos = await _getTodosUseCase.call();
-    final filteredTodo = todos.where((todos) => todos.userId == userId);
+    final todoEntityList = await _getTodosUseCase.call();
+    final filteredTodo = todoEntityList.where((todo) => todo.userId == userId );
     final todoList = filteredTodo
         .map((e) => TodoViewModel(
             userId: e.userId, id: e.id, title: e.title, completed: e.completed))

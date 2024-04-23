@@ -21,6 +21,8 @@ import 'package:progress_bar/domain/use_case/get_user_uscase.dart';
 
 final getIt = GetIt.instance;
 
+//dependency injection = di injection = инъекция
+//D v SOLID - eto Dependency Inversion Princiре
 void setup() {
   ///datasources
   getIt.registerFactory<DataSource>(() => DataSource());
