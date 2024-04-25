@@ -10,8 +10,8 @@ import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc
 import 'package:progress_bar/src/presentation/bloc/user_detalis_page_bloc/user_details_page_bloc.dart';
 import 'package:progress_bar/src/presentation/ui/pages/user_detalis_page.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key, required this.title});
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key, required this.title});
 
   final String title;
 

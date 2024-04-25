@@ -31,7 +31,7 @@ class _LoadingPageState extends State<LoadingPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const MyHomePage(title: 'Aman Demo'),
+            builder: (context) => const HomePage(title: 'Aman Demo'),
           ),
         );
       }

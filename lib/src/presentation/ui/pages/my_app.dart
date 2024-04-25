@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:progress_bar/di_dart.dart';
 
+import 'package:progress_bar/services/routes/app_rout_config.dart';
+
 import 'package:progress_bar/src/domain/use_case/get_user_uscase.dart';
 import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc.dart';
 
-import 'package:progress_bar/src/presentation/ui/pages/loading_page.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,9 +19,10 @@ class MyApp extends StatelessWidget {
           create: (context) => HomePageBloc(
             getUsersUseCase: getIt.get<GetUsersUseCase>(),
           )..add(LoadingStartEvent()),
-          child: const MaterialApp(
+          child: MaterialApp.router(
+            routerConfig: AppRouteConfig().router(),
         title: 'Flutter Demo',
-        home: LoadingPage(),
+
       ),
     );
   }
