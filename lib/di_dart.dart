@@ -1,4 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:http/http.dart';
+import 'package:progress_bar/features/auth_feature/data/data_source/account_data_source.dart';
+import 'package:progress_bar/features/auth_feature/data/repository/account_repository.dart';
+import 'package:progress_bar/features/auth_feature/domain/repository/account_repository.dart';
+import 'package:progress_bar/features/auth_feature/domain/usecase/sign_in_usecase.dart';
+import 'package:progress_bar/features/auth_feature/domain/usecase/get_register_usecase.dart';
 import 'package:progress_bar/src/data/data_sources/data_source.dart';
 import 'package:progress_bar/src/data/repository/album_repository.dart';
 import 'package:progress_bar/src/data/repository/comment_repository.dart';
@@ -24,32 +31,33 @@ final getIt = GetIt.instance;
 //dependency injection = di injection = инъекция
 //D v SOLID - eto Dependency Inversion Princiре
 void setup() {
+  ///services
+  getIt.registerSingleton<FirebaseAuth>(FirebaseAuth.instance);
   ///datasources
   getIt.registerFactory<DataSource>(() => DataSource());
-  // getIt.registerFactory<PostDataSource>(() => PostDataSource());
+  /// account datasource
+  getIt.registerFactory<AccountDataSource>(() => AccountDataSource());
   ///repositories
   getIt.registerFactory<UserRepository>(() => UserRepositoryImpl(getIt.get<DataSource>()));
-
-  ///usecases
-  getIt.registerFactory(() => GetUsersUseCase(getIt.get<UserRepository>()));
-
-  ///repositories
   getIt.registerFactory<PostRepository>(() => PostRepositoryImpl(getIt.get<DataSource>()));
+  getIt.registerSingleton<PhotoRepository>( PhotoRepositoryImpl(getIt.get<DataSource>()));
+  getIt.registerFactory<AlbumRepository>(() => AlbumRepositoryImpl(getIt.get<DataSource>()));
+  getIt.registerFactory<TodoRepository>(() => TodoRepositoryImpl(getIt.get<DataSource>()));
+  getIt.registerFactory<CommentRepository>(() => CommentRepositoryImpl(getIt.get<DataSource>()));
 
   ///usecases
-  getIt.registerFactory(() => GetPostsUseCase(getIt.get<PostRepository>()));
-
-
-  getIt.registerSingleton<PhotoRepository>( PhotoRepositoryImpl(getIt.get<DataSource>()));
+  getIt.registerFactory<GetCommentsUseCase>(() => GetCommentsUseCase(getIt.get<CommentRepository>()));
+  getIt.registerFactory<GetAlbumsUseCase>(() => GetAlbumsUseCase(getIt.get<AlbumRepository>()));
+  getIt.registerFactory<GetPostsUseCase>(() => GetPostsUseCase(getIt.get<PostRepository>()));
+  getIt.registerFactory<GetUsersUseCase>(() => GetUsersUseCase(getIt.get<UserRepository>()));
+  getIt.registerFactory<GetTodosUseCase>(() => GetTodosUseCase(getIt.get<TodoRepository>()));
   getIt.registerFactory<GetPhotosUseCase>(() => GetPhotosUseCase(getIt.get<PhotoRepository>()));
+  ///repositories Account
+  getIt.registerFactory<AccountRepository>(() => AccountRepositoryImpl(getIt.get<AccountDataSource>(), getIt.get<FirebaseAuth>()));
+
+  ///authUseCases
+  getIt.registerFactory<SignInUsecase>(() => SignInUsecase(getIt.get<AccountRepository>()));
+  getIt.registerFactory<CreateUserUsecase>(() => CreateUserUsecase(getIt.get<AccountRepository>()));
 
 
-  getIt.registerFactory<AlbumRepository>(() => AlbumRepositoryImpl(getIt.get<DataSource>()));
-  getIt.registerFactory(() => GetAlbumsUseCase(getIt.get<AlbumRepository>()));
-
-  getIt.registerFactory<TodoRepository>(() => TodoRepositoryImpl(getIt.get<DataSource>()));
-  getIt.registerFactory(() => GetTodosUseCase(getIt.get<TodoRepository>()));
-
-  getIt.registerFactory<CommentRepository>(() => CommentRepositoryImpl(getIt.get<DataSource>()));
-  getIt.registerFactory(() => GetCommentsUseCase(getIt.get<CommentRepository>()));
 }

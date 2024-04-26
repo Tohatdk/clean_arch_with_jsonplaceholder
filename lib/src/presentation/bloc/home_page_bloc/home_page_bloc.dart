@@ -12,9 +12,7 @@ part 'home_page_event.dart';
 part 'home_page_state.dart';
 
 class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
-  HomePageBloc(
-      {required GetUsersUseCase getUsersUseCase,
-  })  : _getUsersUseCase = getUsersUseCase,
+  HomePageBloc({required GetUsersUseCase getUsersUseCase})  : _getUsersUseCase = getUsersUseCase,
         super(const HomePageState()) {
     on<LoadingStartEvent>(_onLoadingStartEvent);
 

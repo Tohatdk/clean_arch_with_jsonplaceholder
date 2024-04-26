@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:progress_bar/services/routes/app_route_paths.dart';
 import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc.dart';
 import 'package:progress_bar/src/presentation/ui/pages/home_page.dart';
 
@@ -28,12 +30,13 @@ class _LoadingPageState extends State<LoadingPage> {
   void _blocListener(BuildContext context, HomePageState state) {
       int percent = state.percent; // или что-то подобное, в зависимости от вашей реализации
       if (percent == 100) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomePage(title: 'Aman Demo'),
-          ),
-        );
+        context.go(AppRoutePaths.home);
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => const HomePage(title: 'Aman Demo'),
+        //   ),
+        // );
       }
   }
 

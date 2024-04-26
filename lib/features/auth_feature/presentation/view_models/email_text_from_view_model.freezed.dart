@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EmailTextFromViewModel {
   String get value => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
-  String get errorMessage => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EmailTextFromViewModelCopyWith<EmailTextFromViewModel> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $EmailTextFromViewModelCopyWith<$Res> {
           $Res Function(EmailTextFromViewModel) then) =
       _$EmailTextFromViewModelCopyWithImpl<$Res, EmailTextFromViewModel>;
   @useResult
-  $Res call({String value, bool isValid, String errorMessage});
+  $Res call({String value, bool isValid, String? errorMessage});
 }
 
 /// @nodoc
@@ -50,7 +50,7 @@ class _$EmailTextFromViewModelCopyWithImpl<$Res,
   $Res call({
     Object? value = null,
     Object? isValid = null,
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       value: null == value
@@ -61,10 +61,10 @@ class _$EmailTextFromViewModelCopyWithImpl<$Res,
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessage: null == errorMessage
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$EmailTextFromViewModelImplCopyWith<$Res>
       __$$EmailTextFromViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String value, bool isValid, String errorMessage});
+  $Res call({String value, bool isValid, String? errorMessage});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class __$$EmailTextFromViewModelImplCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
     Object? isValid = null,
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$EmailTextFromViewModelImpl(
       value: null == value
@@ -107,10 +107,10 @@ class __$$EmailTextFromViewModelImplCopyWithImpl<$Res>
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessage: null == errorMessage
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -119,7 +119,7 @@ class __$$EmailTextFromViewModelImplCopyWithImpl<$Res>
 
 class _$EmailTextFromViewModelImpl implements _EmailTextFromViewModel {
   const _$EmailTextFromViewModelImpl(
-      {this.value = '', this.isValid = true, this.errorMessage = ''});
+      {this.value = '', this.isValid = true, this.errorMessage});
 
   @override
   @JsonKey()
@@ -128,8 +128,7 @@ class _$EmailTextFromViewModelImpl implements _EmailTextFromViewModel {
   @JsonKey()
   final bool isValid;
   @override
-  @JsonKey()
-  final String errorMessage;
+  final String? errorMessage;
 
   @override
   String toString() {
@@ -162,14 +161,14 @@ abstract class _EmailTextFromViewModel implements EmailTextFromViewModel {
   const factory _EmailTextFromViewModel(
       {final String value,
       final bool isValid,
-      final String errorMessage}) = _$EmailTextFromViewModelImpl;
+      final String? errorMessage}) = _$EmailTextFromViewModelImpl;
 
   @override
   String get value;
   @override
   bool get isValid;
   @override
-  String get errorMessage;
+  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$EmailTextFromViewModelImplCopyWith<_$EmailTextFromViewModelImpl>

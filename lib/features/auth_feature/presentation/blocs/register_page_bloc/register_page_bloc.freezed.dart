@@ -25,6 +25,7 @@ mixin _$RegisterPageEvent {
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +36,7 @@ mixin _$RegisterPageEvent {
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,43 +47,47 @@ mixin _$RegisterPageEvent {
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,7 +144,7 @@ class __$$EditEmailEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditEmailEventImpl implements _EditEmailEvent {
+class _$EditEmailEventImpl implements EditEmailEvent {
   const _$EditEmailEventImpl(this.email);
 
   @override
@@ -177,6 +183,7 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) {
     return editEmail(email);
   }
@@ -190,6 +197,7 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) {
     return editEmail?.call(email);
   }
@@ -203,6 +211,7 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) {
     if (editEmail != null) {
@@ -214,14 +223,15 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) {
     return editEmail(this);
   }
@@ -229,14 +239,15 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) {
     return editEmail?.call(this);
   }
@@ -244,14 +255,15 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) {
     if (editEmail != null) {
@@ -261,8 +273,8 @@ class _$EditEmailEventImpl implements _EditEmailEvent {
   }
 }
 
-abstract class _EditEmailEvent implements RegisterPageEvent {
-  const factory _EditEmailEvent(final String email) = _$EditEmailEventImpl;
+abstract class EditEmailEvent implements RegisterPageEvent {
+  const factory EditEmailEvent(final String email) = _$EditEmailEventImpl;
 
   String get email;
   @JsonKey(ignore: true)
@@ -303,7 +315,7 @@ class __$$EditPasswordEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditPasswordEventImpl implements _EditPasswordEvent {
+class _$EditPasswordEventImpl implements EditPasswordEvent {
   const _$EditPasswordEventImpl(this.password);
 
   @override
@@ -343,6 +355,7 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) {
     return editPassword(password);
   }
@@ -356,6 +369,7 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) {
     return editPassword?.call(password);
   }
@@ -369,6 +383,7 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) {
     if (editPassword != null) {
@@ -380,14 +395,15 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) {
     return editPassword(this);
   }
@@ -395,14 +411,15 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) {
     return editPassword?.call(this);
   }
@@ -410,14 +427,15 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) {
     if (editPassword != null) {
@@ -427,8 +445,8 @@ class _$EditPasswordEventImpl implements _EditPasswordEvent {
   }
 }
 
-abstract class _EditPasswordEvent implements RegisterPageEvent {
-  const factory _EditPasswordEvent(final String password) =
+abstract class EditPasswordEvent implements RegisterPageEvent {
+  const factory EditPasswordEvent(final String password) =
       _$EditPasswordEventImpl;
 
   String get password;
@@ -474,7 +492,7 @@ class __$$EditConfimrationPasswordEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EditConfimrationPasswordEventImpl
-    implements _EditConfimrationPasswordEvent {
+    implements EditConfimrationPasswordEvent {
   const _$EditConfimrationPasswordEventImpl(this.confirmationPassword);
 
   @override
@@ -515,6 +533,7 @@ class _$EditConfimrationPasswordEventImpl
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) {
     return editConfirmationPassword(confirmationPassword);
   }
@@ -528,6 +547,7 @@ class _$EditConfimrationPasswordEventImpl
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) {
     return editConfirmationPassword?.call(confirmationPassword);
   }
@@ -541,6 +561,7 @@ class _$EditConfimrationPasswordEventImpl
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) {
     if (editConfirmationPassword != null) {
@@ -552,14 +573,15 @@ class _$EditConfimrationPasswordEventImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) {
     return editConfirmationPassword(this);
   }
@@ -567,14 +589,15 @@ class _$EditConfimrationPasswordEventImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) {
     return editConfirmationPassword?.call(this);
   }
@@ -582,14 +605,15 @@ class _$EditConfimrationPasswordEventImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) {
     if (editConfirmationPassword != null) {
@@ -599,8 +623,8 @@ class _$EditConfimrationPasswordEventImpl
   }
 }
 
-abstract class _EditConfimrationPasswordEvent implements RegisterPageEvent {
-  const factory _EditConfimrationPasswordEvent(
+abstract class EditConfimrationPasswordEvent implements RegisterPageEvent {
+  const factory EditConfimrationPasswordEvent(
       final String confirmationPassword) = _$EditConfimrationPasswordEventImpl;
 
   String get confirmationPassword;
@@ -628,7 +652,7 @@ class __$$TogglePasswordEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
+class _$TogglePasswordEventImpl implements TogglePasswordEvent {
   const _$TogglePasswordEventImpl();
 
   @override
@@ -656,6 +680,7 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) {
     return togglePassword();
   }
@@ -669,6 +694,7 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) {
     return togglePassword?.call();
   }
@@ -682,6 +708,7 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) {
     if (togglePassword != null) {
@@ -693,14 +720,15 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) {
     return togglePassword(this);
   }
@@ -708,14 +736,15 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) {
     return togglePassword?.call(this);
   }
@@ -723,14 +752,15 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) {
     if (togglePassword != null) {
@@ -740,8 +770,8 @@ class _$TogglePasswordEventImpl implements _TogglePasswordEvent {
   }
 }
 
-abstract class _TogglePasswordEvent implements RegisterPageEvent {
-  const factory _TogglePasswordEvent() = _$TogglePasswordEventImpl;
+abstract class TogglePasswordEvent implements RegisterPageEvent {
+  const factory TogglePasswordEvent() = _$TogglePasswordEventImpl;
 }
 
 /// @nodoc
@@ -766,7 +796,7 @@ class __$$ToggleConfirmationPasswordEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ToggleConfirmationPasswordEventImpl
-    implements _ToggleConfirmationPasswordEvent {
+    implements ToggleConfirmationPasswordEvent {
   const _$ToggleConfirmationPasswordEventImpl();
 
   @override
@@ -794,6 +824,7 @@ class _$ToggleConfirmationPasswordEventImpl
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) {
     return toggleConfirmationPassword();
   }
@@ -807,6 +838,7 @@ class _$ToggleConfirmationPasswordEventImpl
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) {
     return toggleConfirmationPassword?.call();
   }
@@ -820,6 +852,7 @@ class _$ToggleConfirmationPasswordEventImpl
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) {
     if (toggleConfirmationPassword != null) {
@@ -831,14 +864,15 @@ class _$ToggleConfirmationPasswordEventImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) {
     return toggleConfirmationPassword(this);
   }
@@ -846,14 +880,15 @@ class _$ToggleConfirmationPasswordEventImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) {
     return toggleConfirmationPassword?.call(this);
   }
@@ -861,14 +896,15 @@ class _$ToggleConfirmationPasswordEventImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) {
     if (toggleConfirmationPassword != null) {
@@ -878,8 +914,8 @@ class _$ToggleConfirmationPasswordEventImpl
   }
 }
 
-abstract class _ToggleConfirmationPasswordEvent implements RegisterPageEvent {
-  const factory _ToggleConfirmationPasswordEvent() =
+abstract class ToggleConfirmationPasswordEvent implements RegisterPageEvent {
+  const factory ToggleConfirmationPasswordEvent() =
       _$ToggleConfirmationPasswordEventImpl;
 }
 
@@ -901,7 +937,7 @@ class __$$SendDataEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SendDataEventImpl implements _SendDataEvent {
+class _$SendDataEventImpl implements SendDataEvent {
   const _$SendDataEventImpl();
 
   @override
@@ -928,6 +964,7 @@ class _$SendDataEventImpl implements _SendDataEvent {
     required TResult Function() togglePassword,
     required TResult Function() toggleConfirmationPassword,
     required TResult Function() sendData,
+    required TResult Function() clearErrors,
   }) {
     return sendData();
   }
@@ -941,6 +978,7 @@ class _$SendDataEventImpl implements _SendDataEvent {
     TResult? Function()? togglePassword,
     TResult? Function()? toggleConfirmationPassword,
     TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
   }) {
     return sendData?.call();
   }
@@ -954,6 +992,7 @@ class _$SendDataEventImpl implements _SendDataEvent {
     TResult Function()? togglePassword,
     TResult Function()? toggleConfirmationPassword,
     TResult Function()? sendData,
+    TResult Function()? clearErrors,
     required TResult orElse(),
   }) {
     if (sendData != null) {
@@ -965,14 +1004,15 @@ class _$SendDataEventImpl implements _SendDataEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EditEmailEvent value) editEmail,
-    required TResult Function(_EditPasswordEvent value) editPassword,
-    required TResult Function(_EditConfimrationPasswordEvent value)
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
         editConfirmationPassword,
-    required TResult Function(_TogglePasswordEvent value) togglePassword,
-    required TResult Function(_ToggleConfirmationPasswordEvent value)
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
         toggleConfirmationPassword,
-    required TResult Function(_SendDataEvent value) sendData,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
   }) {
     return sendData(this);
   }
@@ -980,14 +1020,15 @@ class _$SendDataEventImpl implements _SendDataEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EditEmailEvent value)? editEmail,
-    TResult? Function(_EditPasswordEvent value)? editPassword,
-    TResult? Function(_EditConfimrationPasswordEvent value)?
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult? Function(_TogglePasswordEvent value)? togglePassword,
-    TResult? Function(_ToggleConfirmationPasswordEvent value)?
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult? Function(_SendDataEvent value)? sendData,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
   }) {
     return sendData?.call(this);
   }
@@ -995,14 +1036,15 @@ class _$SendDataEventImpl implements _SendDataEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EditEmailEvent value)? editEmail,
-    TResult Function(_EditPasswordEvent value)? editPassword,
-    TResult Function(_EditConfimrationPasswordEvent value)?
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
         editConfirmationPassword,
-    TResult Function(_TogglePasswordEvent value)? togglePassword,
-    TResult Function(_ToggleConfirmationPasswordEvent value)?
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
         toggleConfirmationPassword,
-    TResult Function(_SendDataEvent value)? sendData,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
     required TResult orElse(),
   }) {
     if (sendData != null) {
@@ -1012,8 +1054,147 @@ class _$SendDataEventImpl implements _SendDataEvent {
   }
 }
 
-abstract class _SendDataEvent implements RegisterPageEvent {
-  const factory _SendDataEvent() = _$SendDataEventImpl;
+abstract class SendDataEvent implements RegisterPageEvent {
+  const factory SendDataEvent() = _$SendDataEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ClearErrorImplCopyWith<$Res> {
+  factory _$$ClearErrorImplCopyWith(
+          _$ClearErrorImpl value, $Res Function(_$ClearErrorImpl) then) =
+      __$$ClearErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearErrorImplCopyWithImpl<$Res>
+    extends _$RegisterPageEventCopyWithImpl<$Res, _$ClearErrorImpl>
+    implements _$$ClearErrorImplCopyWith<$Res> {
+  __$$ClearErrorImplCopyWithImpl(
+      _$ClearErrorImpl _value, $Res Function(_$ClearErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearErrorImpl implements ClearError {
+  const _$ClearErrorImpl();
+
+  @override
+  String toString() {
+    return 'RegisterPageEvent.clearErrors()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email) editEmail,
+    required TResult Function(String password) editPassword,
+    required TResult Function(String confirmationPassword)
+        editConfirmationPassword,
+    required TResult Function() togglePassword,
+    required TResult Function() toggleConfirmationPassword,
+    required TResult Function() sendData,
+    required TResult Function() clearErrors,
+  }) {
+    return clearErrors();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email)? editEmail,
+    TResult? Function(String password)? editPassword,
+    TResult? Function(String confirmationPassword)? editConfirmationPassword,
+    TResult? Function()? togglePassword,
+    TResult? Function()? toggleConfirmationPassword,
+    TResult? Function()? sendData,
+    TResult? Function()? clearErrors,
+  }) {
+    return clearErrors?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? editEmail,
+    TResult Function(String password)? editPassword,
+    TResult Function(String confirmationPassword)? editConfirmationPassword,
+    TResult Function()? togglePassword,
+    TResult Function()? toggleConfirmationPassword,
+    TResult Function()? sendData,
+    TResult Function()? clearErrors,
+    required TResult orElse(),
+  }) {
+    if (clearErrors != null) {
+      return clearErrors();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EditEmailEvent value) editEmail,
+    required TResult Function(EditPasswordEvent value) editPassword,
+    required TResult Function(EditConfimrationPasswordEvent value)
+        editConfirmationPassword,
+    required TResult Function(TogglePasswordEvent value) togglePassword,
+    required TResult Function(ToggleConfirmationPasswordEvent value)
+        toggleConfirmationPassword,
+    required TResult Function(SendDataEvent value) sendData,
+    required TResult Function(ClearError value) clearErrors,
+  }) {
+    return clearErrors(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EditEmailEvent value)? editEmail,
+    TResult? Function(EditPasswordEvent value)? editPassword,
+    TResult? Function(EditConfimrationPasswordEvent value)?
+        editConfirmationPassword,
+    TResult? Function(TogglePasswordEvent value)? togglePassword,
+    TResult? Function(ToggleConfirmationPasswordEvent value)?
+        toggleConfirmationPassword,
+    TResult? Function(SendDataEvent value)? sendData,
+    TResult? Function(ClearError value)? clearErrors,
+  }) {
+    return clearErrors?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EditEmailEvent value)? editEmail,
+    TResult Function(EditPasswordEvent value)? editPassword,
+    TResult Function(EditConfimrationPasswordEvent value)?
+        editConfirmationPassword,
+    TResult Function(TogglePasswordEvent value)? togglePassword,
+    TResult Function(ToggleConfirmationPasswordEvent value)?
+        toggleConfirmationPassword,
+    TResult Function(SendDataEvent value)? sendData,
+    TResult Function(ClearError value)? clearErrors,
+    required TResult orElse(),
+  }) {
+    if (clearErrors != null) {
+      return clearErrors(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearError implements RegisterPageEvent {
+  const factory ClearError() = _$ClearErrorImpl;
 }
 
 /// @nodoc
@@ -1024,8 +1205,8 @@ mixin _$RegisterPageState {
       throw _privateConstructorUsedError;
   RepeatPasswordTextFromViewModel get repeatPasswordFromViewModel =>
       throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  String get failureMessage => throw _privateConstructorUsedError;
+  RegistrationStatus get status => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterPageStateCopyWith<RegisterPageState> get copyWith =>
@@ -1042,8 +1223,8 @@ abstract class $RegisterPageStateCopyWith<$Res> {
       {EmailTextFromViewModel emailViewModel,
       PasswordTextFromViewModel passwordViewModel,
       RepeatPasswordTextFromViewModel repeatPasswordFromViewModel,
-      bool isLoading,
-      String failureMessage});
+      RegistrationStatus status,
+      String message});
 
   $EmailTextFromViewModelCopyWith<$Res> get emailViewModel;
   $PasswordTextFromViewModelCopyWith<$Res> get passwordViewModel;
@@ -1067,8 +1248,8 @@ class _$RegisterPageStateCopyWithImpl<$Res, $Val extends RegisterPageState>
     Object? emailViewModel = null,
     Object? passwordViewModel = null,
     Object? repeatPasswordFromViewModel = null,
-    Object? isLoading = null,
-    Object? failureMessage = null,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
       emailViewModel: null == emailViewModel
@@ -1083,13 +1264,13 @@ class _$RegisterPageStateCopyWithImpl<$Res, $Val extends RegisterPageState>
           ? _value.repeatPasswordFromViewModel
           : repeatPasswordFromViewModel // ignore: cast_nullable_to_non_nullable
               as RepeatPasswordTextFromViewModel,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      failureMessage: null == failureMessage
-          ? _value.failureMessage
-          : failureMessage // ignore: cast_nullable_to_non_nullable
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as RegistrationStatus,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -1135,8 +1316,8 @@ abstract class _$$RegisterPageStateImplCopyWith<$Res>
       {EmailTextFromViewModel emailViewModel,
       PasswordTextFromViewModel passwordViewModel,
       RepeatPasswordTextFromViewModel repeatPasswordFromViewModel,
-      bool isLoading,
-      String failureMessage});
+      RegistrationStatus status,
+      String message});
 
   @override
   $EmailTextFromViewModelCopyWith<$Res> get emailViewModel;
@@ -1161,8 +1342,8 @@ class __$$RegisterPageStateImplCopyWithImpl<$Res>
     Object? emailViewModel = null,
     Object? passwordViewModel = null,
     Object? repeatPasswordFromViewModel = null,
-    Object? isLoading = null,
-    Object? failureMessage = null,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_$RegisterPageStateImpl(
       emailViewModel: null == emailViewModel
@@ -1177,13 +1358,13 @@ class __$$RegisterPageStateImplCopyWithImpl<$Res>
           ? _value.repeatPasswordFromViewModel
           : repeatPasswordFromViewModel // ignore: cast_nullable_to_non_nullable
               as RepeatPasswordTextFromViewModel,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      failureMessage: null == failureMessage
-          ? _value.failureMessage
-          : failureMessage // ignore: cast_nullable_to_non_nullable
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as RegistrationStatus,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1197,8 +1378,8 @@ class _$RegisterPageStateImpl implements _RegisterPageState {
       this.passwordViewModel = const PasswordTextFromViewModel(),
       this.repeatPasswordFromViewModel =
           const RepeatPasswordTextFromViewModel(),
-      this.isLoading = false,
-      this.failureMessage = ''});
+      this.status = RegistrationStatus.none,
+      this.message = ''});
 
   @override
   @JsonKey()
@@ -1211,14 +1392,14 @@ class _$RegisterPageStateImpl implements _RegisterPageState {
   final RepeatPasswordTextFromViewModel repeatPasswordFromViewModel;
   @override
   @JsonKey()
-  final bool isLoading;
+  final RegistrationStatus status;
   @override
   @JsonKey()
-  final String failureMessage;
+  final String message;
 
   @override
   String toString() {
-    return 'RegisterPageState(emailViewModel: $emailViewModel, passwordViewModel: $passwordViewModel, repeatPasswordFromViewModel: $repeatPasswordFromViewModel, isLoading: $isLoading, failureMessage: $failureMessage)';
+    return 'RegisterPageState(emailViewModel: $emailViewModel, passwordViewModel: $passwordViewModel, repeatPasswordFromViewModel: $repeatPasswordFromViewModel, status: $status, message: $message)';
   }
 
   @override
@@ -1234,20 +1415,13 @@ class _$RegisterPageStateImpl implements _RegisterPageState {
                     repeatPasswordFromViewModel) ||
                 other.repeatPasswordFromViewModel ==
                     repeatPasswordFromViewModel) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.failureMessage, failureMessage) ||
-                other.failureMessage == failureMessage));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      emailViewModel,
-      passwordViewModel,
-      repeatPasswordFromViewModel,
-      isLoading,
-      failureMessage);
+  int get hashCode => Object.hash(runtimeType, emailViewModel,
+      passwordViewModel, repeatPasswordFromViewModel, status, message);
 
   @JsonKey(ignore: true)
   @override
@@ -1262,8 +1436,8 @@ abstract class _RegisterPageState implements RegisterPageState {
       {final EmailTextFromViewModel emailViewModel,
       final PasswordTextFromViewModel passwordViewModel,
       final RepeatPasswordTextFromViewModel repeatPasswordFromViewModel,
-      final bool isLoading,
-      final String failureMessage}) = _$RegisterPageStateImpl;
+      final RegistrationStatus status,
+      final String message}) = _$RegisterPageStateImpl;
 
   @override
   EmailTextFromViewModel get emailViewModel;
@@ -1272,9 +1446,9 @@ abstract class _RegisterPageState implements RegisterPageState {
   @override
   RepeatPasswordTextFromViewModel get repeatPasswordFromViewModel;
   @override
-  bool get isLoading;
+  RegistrationStatus get status;
   @override
-  String get failureMessage;
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$RegisterPageStateImplCopyWith<_$RegisterPageStateImpl> get copyWith =>

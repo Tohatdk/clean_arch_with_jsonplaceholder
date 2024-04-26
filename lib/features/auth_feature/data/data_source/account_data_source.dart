@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:progress_bar/core/network/error.dart';
 
 class AccountDataSource {
 
@@ -13,21 +14,24 @@ class AccountDataSource {
     required String password,
   }) async {
     try {
+      print('*****************************************************');
+      print('email: $email \npassword: $password');
+      print('*****************************************************');
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
+      print('*****************************************************');
+      print(userCredential.user?.email);
+      print('*****************************************************');
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('Пользователь с таким адресом электронной почты не найден.');
-      } else if (e.code == 'wrong-password') {
-        print('Неверный пароль для этого пользователя.');
-      } else {
-        print('Ошибка входа в систему: ${e.message}');
-      }
-      return null;
+      print(e);
+        throw IncorrectDataError(
+            message: 'Ошибка входа в систему: ${e.code}'
+        );
     } catch (e) {
-      print('Ошибка входа в систему: $e');
-      return null;
+      throw NetworkError(
+          message: 'Ошибка входа в систему: $e'
+      );
     }
   }
 

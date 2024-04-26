@@ -20,6 +20,8 @@ mixin _$LoginPageState {
       throw _privateConstructorUsedError;
   PasswordTextFromViewModel get passwordViewModel =>
       throw _privateConstructorUsedError;
+  LoginPageStatus get status => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginPageStateCopyWith<LoginPageState> get copyWith =>
@@ -34,7 +36,9 @@ abstract class $LoginPageStateCopyWith<$Res> {
   @useResult
   $Res call(
       {EmailTextFromViewModel emailViewModel,
-      PasswordTextFromViewModel passwordViewModel});
+      PasswordTextFromViewModel passwordViewModel,
+      LoginPageStatus status,
+      String errorMessage});
 
   $EmailTextFromViewModelCopyWith<$Res> get emailViewModel;
   $PasswordTextFromViewModelCopyWith<$Res> get passwordViewModel;
@@ -55,6 +59,8 @@ class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
   $Res call({
     Object? emailViewModel = null,
     Object? passwordViewModel = null,
+    Object? status = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       emailViewModel: null == emailViewModel
@@ -65,6 +71,14 @@ class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
           ? _value.passwordViewModel
           : passwordViewModel // ignore: cast_nullable_to_non_nullable
               as PasswordTextFromViewModel,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LoginPageStatus,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -97,7 +111,9 @@ abstract class _$$LoginPageStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {EmailTextFromViewModel emailViewModel,
-      PasswordTextFromViewModel passwordViewModel});
+      PasswordTextFromViewModel passwordViewModel,
+      LoginPageStatus status,
+      String errorMessage});
 
   @override
   $EmailTextFromViewModelCopyWith<$Res> get emailViewModel;
@@ -118,6 +134,8 @@ class __$$LoginPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? emailViewModel = null,
     Object? passwordViewModel = null,
+    Object? status = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$LoginPageStateImpl(
       emailViewModel: null == emailViewModel
@@ -128,6 +146,14 @@ class __$$LoginPageStateImplCopyWithImpl<$Res>
           ? _value.passwordViewModel
           : passwordViewModel // ignore: cast_nullable_to_non_nullable
               as PasswordTextFromViewModel,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LoginPageStatus,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -137,7 +163,9 @@ class __$$LoginPageStateImplCopyWithImpl<$Res>
 class _$LoginPageStateImpl implements _LoginPageState {
   const _$LoginPageStateImpl(
       {this.emailViewModel = const EmailTextFromViewModel(),
-      this.passwordViewModel = const PasswordTextFromViewModel()});
+      this.passwordViewModel = const PasswordTextFromViewModel(),
+      this.status = LoginPageStatus.none,
+      this.errorMessage = ''});
 
   @override
   @JsonKey()
@@ -145,10 +173,16 @@ class _$LoginPageStateImpl implements _LoginPageState {
   @override
   @JsonKey()
   final PasswordTextFromViewModel passwordViewModel;
+  @override
+  @JsonKey()
+  final LoginPageStatus status;
+  @override
+  @JsonKey()
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'LoginPageState(emailViewModel: $emailViewModel, passwordViewModel: $passwordViewModel)';
+    return 'LoginPageState(emailViewModel: $emailViewModel, passwordViewModel: $passwordViewModel, status: $status, errorMessage: $errorMessage)';
   }
 
   @override
@@ -159,12 +193,15 @@ class _$LoginPageStateImpl implements _LoginPageState {
             (identical(other.emailViewModel, emailViewModel) ||
                 other.emailViewModel == emailViewModel) &&
             (identical(other.passwordViewModel, passwordViewModel) ||
-                other.passwordViewModel == passwordViewModel));
+                other.passwordViewModel == passwordViewModel) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, emailViewModel, passwordViewModel);
+  int get hashCode => Object.hash(
+      runtimeType, emailViewModel, passwordViewModel, status, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -176,14 +213,19 @@ class _$LoginPageStateImpl implements _LoginPageState {
 
 abstract class _LoginPageState implements LoginPageState {
   const factory _LoginPageState(
-          {final EmailTextFromViewModel emailViewModel,
-          final PasswordTextFromViewModel passwordViewModel}) =
-      _$LoginPageStateImpl;
+      {final EmailTextFromViewModel emailViewModel,
+      final PasswordTextFromViewModel passwordViewModel,
+      final LoginPageStatus status,
+      final String errorMessage}) = _$LoginPageStateImpl;
 
   @override
   EmailTextFromViewModel get emailViewModel;
   @override
   PasswordTextFromViewModel get passwordViewModel;
+  @override
+  LoginPageStatus get status;
+  @override
+  String get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$LoginPageStateImplCopyWith<_$LoginPageStateImpl> get copyWith =>

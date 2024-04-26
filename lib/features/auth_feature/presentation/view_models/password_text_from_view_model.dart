@@ -4,7 +4,7 @@ part 'password_text_from_view_model.freezed.dart';
 class PasswordTextFromViewModel with _$PasswordTextFromViewModel{
   const factory PasswordTextFromViewModel({
     @Default('') String value,
-    @Default('')  String errorMessage,
+      String? errorMessage,
     @Default(true) bool isValid,
     @Default(true) bool isObscured,
 })=_PasswordTextFromViewModel;

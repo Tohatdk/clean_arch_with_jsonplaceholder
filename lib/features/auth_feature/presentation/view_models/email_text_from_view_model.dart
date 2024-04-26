@@ -6,7 +6,7 @@ class EmailTextFromViewModel with _$EmailTextFromViewModel{
   const factory EmailTextFromViewModel({
     @Default('') String value,
   @Default(true) bool isValid,
-  @Default('') String errorMessage,
+  String? errorMessage,
 })=_EmailTextFromViewModel;
 
 }

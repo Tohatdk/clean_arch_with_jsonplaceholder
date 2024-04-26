@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PasswordTextFromViewModel {
   String get value => throw _privateConstructorUsedError;
-  String get errorMessage => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
   bool get isObscured => throw _privateConstructorUsedError;
 
@@ -32,7 +32,8 @@ abstract class $PasswordTextFromViewModelCopyWith<$Res> {
           $Res Function(PasswordTextFromViewModel) then) =
       _$PasswordTextFromViewModelCopyWithImpl<$Res, PasswordTextFromViewModel>;
   @useResult
-  $Res call({String value, String errorMessage, bool isValid, bool isObscured});
+  $Res call(
+      {String value, String? errorMessage, bool isValid, bool isObscured});
 }
 
 /// @nodoc
@@ -50,7 +51,7 @@ class _$PasswordTextFromViewModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? value = null,
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
     Object? isValid = null,
     Object? isObscured = null,
   }) {
@@ -59,10 +60,10 @@ class _$PasswordTextFromViewModelCopyWithImpl<$Res,
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      errorMessage: null == errorMessage
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isValid: null == isValid
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
@@ -84,7 +85,8 @@ abstract class _$$PasswordTextFromViewModelImplCopyWith<$Res>
       __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String value, String errorMessage, bool isValid, bool isObscured});
+  $Res call(
+      {String value, String? errorMessage, bool isValid, bool isObscured});
 }
 
 /// @nodoc
@@ -101,7 +103,7 @@ class __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = null,
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
     Object? isValid = null,
     Object? isObscured = null,
   }) {
@@ -110,10 +112,10 @@ class __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      errorMessage: null == errorMessage
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isValid: null == isValid
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
@@ -131,7 +133,7 @@ class __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>
 class _$PasswordTextFromViewModelImpl implements _PasswordTextFromViewModel {
   const _$PasswordTextFromViewModelImpl(
       {this.value = '',
-      this.errorMessage = '',
+      this.errorMessage,
       this.isValid = true,
       this.isObscured = true});
 
@@ -139,8 +141,7 @@ class _$PasswordTextFromViewModelImpl implements _PasswordTextFromViewModel {
   @JsonKey()
   final String value;
   @override
-  @JsonKey()
-  final String errorMessage;
+  final String? errorMessage;
   @override
   @JsonKey()
   final bool isValid;
@@ -181,14 +182,14 @@ class _$PasswordTextFromViewModelImpl implements _PasswordTextFromViewModel {
 abstract class _PasswordTextFromViewModel implements PasswordTextFromViewModel {
   const factory _PasswordTextFromViewModel(
       {final String value,
-      final String errorMessage,
+      final String? errorMessage,
       final bool isValid,
       final bool isObscured}) = _$PasswordTextFromViewModelImpl;
 
   @override
   String get value;
   @override
-  String get errorMessage;
+  String? get errorMessage;
   @override
   bool get isValid;
   @override
