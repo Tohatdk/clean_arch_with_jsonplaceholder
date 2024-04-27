@@ -9,8 +9,17 @@ import 'package:progress_bar/features/auth_feature/presentation/blocs/register_p
 import 'package:progress_bar/features/auth_feature/presentation/ui/screens/login_page.dart';
 import 'package:progress_bar/features/auth_feature/presentation/ui/screens/register_page.dart';
 import 'package:progress_bar/services/routes/app_route_paths.dart';
+import 'package:progress_bar/src/domain/use_case/get_album_usecase.dart';
+import 'package:progress_bar/src/domain/use_case/get_comment_usecase.dart';
+import 'package:progress_bar/src/domain/use_case/get_photo_usecase.dart';
+import 'package:progress_bar/src/domain/use_case/get_post_uscase.dart';
+import 'package:progress_bar/src/domain/use_case/get_todo_usecase.dart';
+import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc.dart';
+import 'package:progress_bar/src/presentation/bloc/user_detalis_page_bloc/user_details_page_bloc.dart';
 import 'package:progress_bar/src/presentation/ui/pages/home_page.dart';
 import 'package:progress_bar/src/presentation/ui/pages/loading_page.dart';
+import 'package:progress_bar/src/presentation/ui/pages/user_detalis_page.dart';
+import 'package:progress_bar/src/presentation/view_models/user_view_model.dart';
 
 final rootNaveKey = GlobalKey<NavigatorState>(debugLabel: 'rooNav');
 
@@ -19,25 +28,46 @@ class AppRouteConfig {
 
   static final GoRouter router = GoRouter(
     navigatorKey: rootNaveKey,
-    initialLocation: AppRoutePaths.auth,
+    initialLocation: AppRoutePaths.login,
+  // observers: [NavigatorObserver()],
     routes: [
       GoRoute(
-        path: AppRoutePaths.home,
-        builder: (context, state) => const HomePage(
-          title: 'MyTitle',
-        ),
-      ),
-      GoRoute(
-        path: AppRoutePaths.auth,
+        path: AppRoutePaths.login,
         builder: (context, state) => BlocProvider(
-          create: (BuildContext context) => LoginPageBloc(signInUseCase: getIt.get<SignInUsecase>()),
+          create: ( context) =>
+              LoginPageBloc(signInUseCase: getIt.get<SignInUsecase>()),
           child: const LoginPage(),
         ),
       ),
       GoRoute(
-        path: AppRoutePaths.loading,
-        builder: (context, state) => const LoadingPage(),
-      ),
+          path: AppRoutePaths.loading,
+          builder: (context, state) => BlocProvider.value(
+              value: getIt.get<HomePageBloc>(),
+              child: const LoadingPage()),
+        routes: [
+          GoRoute(
+              path: AppRoutePaths.home,
+              parentNavigatorKey: rootNaveKey,
+              builder: (context, state) => const HomePage(
+                title: 'MyTitle',
+
+              ),
+              routes: [
+                GoRoute(path: AppRoutePaths.userDetails,builder: (context,state)=>  BlocProvider(
+                  create: (context) => UserDetailsPageBloc(
+                    getPostsUseCase: getIt<GetPostsUseCase>(),
+                    getAlbumsUseCase: getIt<GetAlbumsUseCase>(),
+                    getPhotosUseCase: getIt<GetPhotosUseCase>(),
+                    getCommentsUseCase: getIt<GetCommentsUseCase>(),
+                    getTodosUseCase: getIt<GetTodosUseCase>(),
+
+                  ),
+                  child: UserDetailsPage(user:state.extra as UserViewModel),
+                ))
+              ]
+          ),
+        ]
+        ),
       GoRoute(
         path: AppRoutePaths.register,
         builder: (context, state) {
@@ -48,6 +78,7 @@ class AppRouteConfig {
           );
         },
       ),
+
     ],
   );
 }

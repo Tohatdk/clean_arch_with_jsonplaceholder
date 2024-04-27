@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,20 +17,20 @@ part 'register_page_state.dart';
 typedef StateEmitter = Emitter<RegisterPageState>;
 
 class RegisterPageBloc extends Bloc<RegisterPageEvent, RegisterPageState> {
-  RegisterPageBloc({required CreateUserUsecase createUserUsecase}): _getRegisterUseCase = createUserUsecase,
-        super(const RegisterPageState())
-    {on<EditEmailEvent>(_editEmail, transformer: _debounceEvent<EditEmailEvent>);
-    on<EditPasswordEvent>(_changePassword, transformer: _debounceEvent<EditPasswordEvent>);
-    on<EditConfimrationPasswordEvent>(_editConfirmPass, transformer: _debounceEvent<EditConfimrationPasswordEvent>);
+  RegisterPageBloc({required CreateUserUsecase createUserUsecase})
+      : _getRegisterUseCase = createUserUsecase,
+        super(const RegisterPageState()) {
+    on<EditEmailEvent>(_editEmail, transformer: _debounceEvent<EditEmailEvent>);
+    on<EditPasswordEvent>(_changePassword,
+        transformer: _debounceEvent<EditPasswordEvent>);
+    on<EditConfimrationPasswordEvent>(_editConfirmPass,
+        transformer: _debounceEvent<EditConfimrationPasswordEvent>);
     on<TogglePasswordEvent>((_, emit) {
       final viewModel = state.passwordViewModel;
       emit(state.copyWith(
           passwordViewModel:
           viewModel.copyWith(isObscured: !viewModel.isObscured)));
     });
-
-
-
     on<ToggleConfirmationPasswordEvent>((_, emit) {
       final viewModel = state.repeatPasswordFromViewModel;
       emit(state.copyWith(
@@ -39,7 +38,7 @@ class RegisterPageBloc extends Bloc<RegisterPageEvent, RegisterPageState> {
           viewModel.copyWith(isObscured: !viewModel.isObscured)));
     });
     on<SendDataEvent>(_submit);
-    on<ClearError>((e,emit){
+    on<ClearError>((e, emit) {
       emit(state.copyWith(message: '', status: RegistrationStatus.none));
     });
   }
@@ -49,15 +48,10 @@ class RegisterPageBloc extends Bloc<RegisterPageEvent, RegisterPageState> {
   Future<void> _changePassword(EditPasswordEvent event,
       StateEmitter emit) async {
     final passVm = state.passwordViewModel;
-    final isStrongPassword = isPasswordStrongEnough(emit);
-
-    final message = isStrongPassword ? null : 'Пароль ненадежный!';
 
     emit(state.copyWith(
         passwordViewModel: passVm.copyWith(
           value: event.password,
-          isValid: isStrongPassword,
-          errorMessage: message,
         )));
   }
 
@@ -82,62 +76,68 @@ class RegisterPageBloc extends Bloc<RegisterPageEvent, RegisterPageState> {
   Future<void> _submit(SendDataEvent event,
       Emitter<RegisterPageState> emit) async {
     emit(state.copyWith(
-        status: RegistrationStatus.loading,
-        message: 'Fucking shit happened on front side'));
-    //проверка на идентичность паролей
-    final bool identicalPasswords = checkPasswordsIdentity(emit);
+      status: RegistrationStatus.loading,
+    ));
     final validEmail = isEmailValid(emit);
-    final strongPassword = isPasswordStrongEnough(emit);
+    final isPasswordValid = isPasswordsValid(emit);
     // проверка емайла и валидация пароля
     final bool isAllDataIsValid =
-        strongPassword && validEmail && identicalPasswords;
+        isPasswordValid && validEmail;
 
     if (!isAllDataIsValid) {
       emit(state.copyWith(
           status: RegistrationStatus.failure,
-          message: 'Fucking shit happened on front side'));
+          message: 'Fucking shit happened on front hgside'));
       return;
     }
 
-    final result =
-    await _getRegisterUseCase.call(email: state.emailViewModel.value,
+    final result = await _getRegisterUseCase.call(
+        email: state.emailViewModel.value,
         password: state.passwordViewModel.value);
 
-    if (result == null) {
-      emit(state.copyWith(
-          status: RegistrationStatus.failure,
-          message: 'Fucking shit happened on server side'));
-      return;
-    }
-
-    emit(state.copyWith(
-        status: RegistrationStatus.succeed,
-        message: 'Congratulations mathafacka'));
+    result.fold(
+          (left) =>
+          emit(state.copyWith(
+              status: RegistrationStatus.failure, message: left.message)),
+          (right) =>
+          emit(state.copyWith(
+              status: RegistrationStatus.succeed,
+              message: 'Успешно авторизован')),
+    );
   }
 
   //vtorostepennie
-  bool isPasswordStrongEnough(Emitter<RegisterPageState> emit) {
+  bool isPasswordsValid(Emitter<RegisterPageState> emit) {
     final passwordRegex = RegExp(r'^(?=.*?[A-Z])(?=.*?[0-9]).{6,}$');
     final isValid = passwordRegex.hasMatch(state.passwordViewModel.value);
 
-    if(!isValid){
-      final passVm = state.passwordViewModel.copyWith(
-        isValid: isValid, errorMessage: 'Пароли не соответсвует требованиям!',);
-      emit(state.copyWith(passwordViewModel:passVm));
-    }
-
-    return isValid;
-  }
-
-  bool checkPasswordsIdentity(Emitter<RegisterPageState> emit) {
-    final isValid = state.passwordViewModel.value ==
-        state.repeatPasswordFromViewModel.value;
+    final passVm = state.passwordViewModel;
+    final confirmPassVm = state.repeatPasswordFromViewModel;
+    String? errorMessage;
     if (!isValid) {
-      final passVm = state.passwordViewModel.copyWith(
-        isValid: isValid, errorMessage: 'Пароли не совпадают',);
-      emit(state.copyWith(passwordViewModel:passVm));
+      errorMessage = 'Пароли не соответсвует требованиям!';
     }
-    return isValid;
+
+    final isIdentical = passVm.value ==
+        confirmPassVm.value;
+
+    String? confirmError;
+    if (!isIdentical) {
+      confirmError = 'Пароли не совпадают';
+    }
+
+    emit(state.copyWith(
+        passwordViewModel: passVm.copyWith(
+          isValid: isValid,
+          errorMessage: errorMessage,
+        ),
+        repeatPasswordFromViewModel: confirmPassVm.copyWith(
+          isValid: isIdentical,
+          errorMessage: confirmError,
+        ),
+    ));
+
+    return isValid && isIdentical;
   }
 
   bool isEmailValid(Emitter<RegisterPageState> emit) {
@@ -147,13 +147,16 @@ class RegisterPageBloc extends Bloc<RegisterPageEvent, RegisterPageState> {
 
     if (!isValid) {
       final emailVm = state.emailViewModel.copyWith(
-        isValid: isValid, errorMessage: 'Неправильный email',);
-      emit(state.copyWith(emailViewModel:emailVm));
+        isValid: isValid,
+        errorMessage: 'Неправильный email',
+      );
+      emit(state.copyWith(emailViewModel: emailVm));
     }
 
     return isValid;
   }
 
-  Stream<T> _debounceEvent<T extends RegisterPageEvent>(Stream<T> stream ,Stream<T> Function(T) s) =>
+  Stream<T> _debounceEvent<T extends RegisterPageEvent>(Stream<T> stream,
+      Stream<T> Function(T) s) =>
       stream.debounceTime(const Duration(milliseconds: 500)).asyncExpand(s);
 }

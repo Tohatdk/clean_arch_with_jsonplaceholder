@@ -90,9 +90,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 const Text('Register Page'),
                 TextFormField(
                   controller: emailEditingController,
-                  onChanged: (email) {
-                    bloc.add(RegisterPageEvent.editEmail(email));
-                  },
                   decoration: InputDecoration(
                     errorText: emailViewModel.errorMessage,
                       icon: const Icon(Icons.email), labelText: "Введите email"),
@@ -100,11 +97,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 TextFormField(
                   controller: passwordEditingController,
                   obscureText: passwordViewModel.isObscured,
-                  onChanged: (password) {
-                    bloc.add(RegisterPageEvent.editPassword(password));
-                  },
                   decoration: InputDecoration(
                     labelText: "Введите пароль",
+                    errorText: passwordViewModel.errorMessage,
                     suffixIcon: IconButton(
                       onPressed: () {
                         bloc.add(const RegisterPageEvent.togglePassword());
@@ -122,6 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                   obscureText: confirmPasswordViewModel.isObscured,
                   decoration: InputDecoration(
+                    errorText: confirmPasswordViewModel.errorMessage,
                     hintText: "Подвтердите паоль",
                     suffixIcon: IconButton(
                       onPressed: () {

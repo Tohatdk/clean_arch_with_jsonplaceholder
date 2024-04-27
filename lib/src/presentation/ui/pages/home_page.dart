@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:progress_bar/di_dart.dart';
+import 'package:progress_bar/services/routes/app_route_paths.dart';
 import 'package:progress_bar/src/domain/use_case/get_album_usecase.dart';
 import 'package:progress_bar/src/domain/use_case/get_comment_usecase.dart';
 import 'package:progress_bar/src/domain/use_case/get_photo_usecase.dart';
@@ -45,22 +47,8 @@ class HomePage extends StatelessWidget {
                     title: Text(user.name,),
                     subtitle: Text(user.email),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BlocProvider(
-                            create: (context) => UserDetailsPageBloc(
+                      context.go('${AppRoutePaths.loading}/${AppRoutePaths.home}/${AppRoutePaths.userDetails}',extra: user);
 
-                              getPostsUseCase: getIt<GetPostsUseCase>(),
-                              getAlbumsUseCase: getIt<GetAlbumsUseCase>(),
-                              getPhotosUseCase: getIt<GetPhotosUseCase>(),
-                              getCommentsUseCase: getIt<GetCommentsUseCase>(),
-                              getTodosUseCase: getIt<GetTodosUseCase>(),
-                            ),
-                            child: UserDetailsPage(user: user),
-                          ),
-                        ),
-                     );
                     },
                   ),
                 );

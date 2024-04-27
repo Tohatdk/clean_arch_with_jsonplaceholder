@@ -30,7 +30,7 @@ class _LoadingPageState extends State<LoadingPage> {
   void _blocListener(BuildContext context, HomePageState state) {
       int percent = state.percent; // или что-то подобное, в зависимости от вашей реализации
       if (percent == 100) {
-        context.go(AppRoutePaths.home);
+        context.go('${AppRoutePaths.loading}/${AppRoutePaths.home}');
         // Navigator.pushReplacement(
         //   context,
         //   MaterialPageRoute(

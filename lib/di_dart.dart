@@ -4,6 +4,7 @@ import 'package:http/http.dart';
 import 'package:progress_bar/features/auth_feature/data/data_source/account_data_source.dart';
 import 'package:progress_bar/features/auth_feature/data/repository/account_repository.dart';
 import 'package:progress_bar/features/auth_feature/domain/repository/account_repository.dart';
+import 'package:progress_bar/features/auth_feature/domain/usecase/logout_use_case.dart';
 import 'package:progress_bar/features/auth_feature/domain/usecase/sign_in_usecase.dart';
 import 'package:progress_bar/features/auth_feature/domain/usecase/get_register_usecase.dart';
 import 'package:progress_bar/src/data/data_sources/data_source.dart';
@@ -25,6 +26,7 @@ import 'package:progress_bar/src/domain/use_case/get_photo_usecase.dart';
 import 'package:progress_bar/src/domain/use_case/get_post_uscase.dart';
 import 'package:progress_bar/src/domain/use_case/get_todo_usecase.dart';
 import 'package:progress_bar/src/domain/use_case/get_user_uscase.dart';
+import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -58,6 +60,8 @@ void setup() {
   ///authUseCases
   getIt.registerFactory<SignInUsecase>(() => SignInUsecase(getIt.get<AccountRepository>()));
   getIt.registerFactory<CreateUserUsecase>(() => CreateUserUsecase(getIt.get<AccountRepository>()));
-
+ getIt.registerFactory<LogoutUseCase>(() => LogoutUseCase(getIt.get<AccountRepository>()));
+ ///bloc
+ getIt.registerSingleton<HomePageBloc>(HomePageBloc(getUsersUseCase:getIt.get<GetUsersUseCase>()));
 
 }
