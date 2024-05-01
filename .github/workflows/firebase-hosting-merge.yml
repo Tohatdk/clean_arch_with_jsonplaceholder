@@ -6,17 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: "stable"
-          flutter-version: 3.3.8
+          channel: stable
+          flutter-version-file: pubspec.yaml
       - name: 📦 Install Dependencies
         run: |
-          flutter pub global activate very_good_cli
-          very_good --analytics false
-          very_good packages get --recursive
+          flutter pub get
       - name: 🛠️ Build the application
         run: flutter build web -t lib/main.dart
       - name: ⬇️ Archive Production Artifact
