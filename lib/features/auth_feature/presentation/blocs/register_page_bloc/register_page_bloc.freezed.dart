@@ -1199,11 +1199,10 @@ abstract class ClearError implements RegisterPageEvent {
 
 /// @nodoc
 mixin _$RegisterPageState {
-  EmailTextFromViewModel get emailViewModel =>
+  EmailFormViewModel get emailViewModel => throw _privateConstructorUsedError;
+  PasswordFormViewModel get passwordViewModel =>
       throw _privateConstructorUsedError;
-  PasswordTextFromViewModel get passwordViewModel =>
-      throw _privateConstructorUsedError;
-  RepeatPasswordTextFromViewModel get repeatPasswordFromViewModel =>
+  PasswordFormViewModel get repeatPasswordFromViewModel =>
       throw _privateConstructorUsedError;
   RegistrationStatus get status => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
@@ -1220,16 +1219,15 @@ abstract class $RegisterPageStateCopyWith<$Res> {
       _$RegisterPageStateCopyWithImpl<$Res, RegisterPageState>;
   @useResult
   $Res call(
-      {EmailTextFromViewModel emailViewModel,
-      PasswordTextFromViewModel passwordViewModel,
-      RepeatPasswordTextFromViewModel repeatPasswordFromViewModel,
+      {EmailFormViewModel emailViewModel,
+      PasswordFormViewModel passwordViewModel,
+      PasswordFormViewModel repeatPasswordFromViewModel,
       RegistrationStatus status,
       String message});
 
-  $EmailTextFromViewModelCopyWith<$Res> get emailViewModel;
-  $PasswordTextFromViewModelCopyWith<$Res> get passwordViewModel;
-  $RepeatPasswordTextFromViewModelCopyWith<$Res>
-      get repeatPasswordFromViewModel;
+  $EmailFormViewModelCopyWith<$Res> get emailViewModel;
+  $PasswordFormViewModelCopyWith<$Res> get passwordViewModel;
+  $PasswordFormViewModelCopyWith<$Res> get repeatPasswordFromViewModel;
 }
 
 /// @nodoc
@@ -1255,15 +1253,15 @@ class _$RegisterPageStateCopyWithImpl<$Res, $Val extends RegisterPageState>
       emailViewModel: null == emailViewModel
           ? _value.emailViewModel
           : emailViewModel // ignore: cast_nullable_to_non_nullable
-              as EmailTextFromViewModel,
+              as EmailFormViewModel,
       passwordViewModel: null == passwordViewModel
           ? _value.passwordViewModel
           : passwordViewModel // ignore: cast_nullable_to_non_nullable
-              as PasswordTextFromViewModel,
+              as PasswordFormViewModel,
       repeatPasswordFromViewModel: null == repeatPasswordFromViewModel
           ? _value.repeatPasswordFromViewModel
           : repeatPasswordFromViewModel // ignore: cast_nullable_to_non_nullable
-              as RepeatPasswordTextFromViewModel,
+              as PasswordFormViewModel,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -1277,17 +1275,16 @@ class _$RegisterPageStateCopyWithImpl<$Res, $Val extends RegisterPageState>
 
   @override
   @pragma('vm:prefer-inline')
-  $EmailTextFromViewModelCopyWith<$Res> get emailViewModel {
-    return $EmailTextFromViewModelCopyWith<$Res>(_value.emailViewModel,
-        (value) {
+  $EmailFormViewModelCopyWith<$Res> get emailViewModel {
+    return $EmailFormViewModelCopyWith<$Res>(_value.emailViewModel, (value) {
       return _then(_value.copyWith(emailViewModel: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PasswordTextFromViewModelCopyWith<$Res> get passwordViewModel {
-    return $PasswordTextFromViewModelCopyWith<$Res>(_value.passwordViewModel,
+  $PasswordFormViewModelCopyWith<$Res> get passwordViewModel {
+    return $PasswordFormViewModelCopyWith<$Res>(_value.passwordViewModel,
         (value) {
       return _then(_value.copyWith(passwordViewModel: value) as $Val);
     });
@@ -1295,9 +1292,8 @@ class _$RegisterPageStateCopyWithImpl<$Res, $Val extends RegisterPageState>
 
   @override
   @pragma('vm:prefer-inline')
-  $RepeatPasswordTextFromViewModelCopyWith<$Res>
-      get repeatPasswordFromViewModel {
-    return $RepeatPasswordTextFromViewModelCopyWith<$Res>(
+  $PasswordFormViewModelCopyWith<$Res> get repeatPasswordFromViewModel {
+    return $PasswordFormViewModelCopyWith<$Res>(
         _value.repeatPasswordFromViewModel, (value) {
       return _then(_value.copyWith(repeatPasswordFromViewModel: value) as $Val);
     });
@@ -1313,19 +1309,18 @@ abstract class _$$RegisterPageStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {EmailTextFromViewModel emailViewModel,
-      PasswordTextFromViewModel passwordViewModel,
-      RepeatPasswordTextFromViewModel repeatPasswordFromViewModel,
+      {EmailFormViewModel emailViewModel,
+      PasswordFormViewModel passwordViewModel,
+      PasswordFormViewModel repeatPasswordFromViewModel,
       RegistrationStatus status,
       String message});
 
   @override
-  $EmailTextFromViewModelCopyWith<$Res> get emailViewModel;
+  $EmailFormViewModelCopyWith<$Res> get emailViewModel;
   @override
-  $PasswordTextFromViewModelCopyWith<$Res> get passwordViewModel;
+  $PasswordFormViewModelCopyWith<$Res> get passwordViewModel;
   @override
-  $RepeatPasswordTextFromViewModelCopyWith<$Res>
-      get repeatPasswordFromViewModel;
+  $PasswordFormViewModelCopyWith<$Res> get repeatPasswordFromViewModel;
 }
 
 /// @nodoc
@@ -1349,15 +1344,15 @@ class __$$RegisterPageStateImplCopyWithImpl<$Res>
       emailViewModel: null == emailViewModel
           ? _value.emailViewModel
           : emailViewModel // ignore: cast_nullable_to_non_nullable
-              as EmailTextFromViewModel,
+              as EmailFormViewModel,
       passwordViewModel: null == passwordViewModel
           ? _value.passwordViewModel
           : passwordViewModel // ignore: cast_nullable_to_non_nullable
-              as PasswordTextFromViewModel,
+              as PasswordFormViewModel,
       repeatPasswordFromViewModel: null == repeatPasswordFromViewModel
           ? _value.repeatPasswordFromViewModel
           : repeatPasswordFromViewModel // ignore: cast_nullable_to_non_nullable
-              as RepeatPasswordTextFromViewModel,
+              as PasswordFormViewModel,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -1374,22 +1369,21 @@ class __$$RegisterPageStateImplCopyWithImpl<$Res>
 
 class _$RegisterPageStateImpl implements _RegisterPageState {
   const _$RegisterPageStateImpl(
-      {this.emailViewModel = const EmailTextFromViewModel(),
-      this.passwordViewModel = const PasswordTextFromViewModel(),
-      this.repeatPasswordFromViewModel =
-          const RepeatPasswordTextFromViewModel(),
+      {this.emailViewModel = const EmailFormViewModel(),
+      this.passwordViewModel = const PasswordFormViewModel(),
+      this.repeatPasswordFromViewModel = const PasswordFormViewModel(),
       this.status = RegistrationStatus.none,
       this.message = ''});
 
   @override
   @JsonKey()
-  final EmailTextFromViewModel emailViewModel;
+  final EmailFormViewModel emailViewModel;
   @override
   @JsonKey()
-  final PasswordTextFromViewModel passwordViewModel;
+  final PasswordFormViewModel passwordViewModel;
   @override
   @JsonKey()
-  final RepeatPasswordTextFromViewModel repeatPasswordFromViewModel;
+  final PasswordFormViewModel repeatPasswordFromViewModel;
   @override
   @JsonKey()
   final RegistrationStatus status;
@@ -1433,18 +1427,18 @@ class _$RegisterPageStateImpl implements _RegisterPageState {
 
 abstract class _RegisterPageState implements RegisterPageState {
   const factory _RegisterPageState(
-      {final EmailTextFromViewModel emailViewModel,
-      final PasswordTextFromViewModel passwordViewModel,
-      final RepeatPasswordTextFromViewModel repeatPasswordFromViewModel,
+      {final EmailFormViewModel emailViewModel,
+      final PasswordFormViewModel passwordViewModel,
+      final PasswordFormViewModel repeatPasswordFromViewModel,
       final RegistrationStatus status,
       final String message}) = _$RegisterPageStateImpl;
 
   @override
-  EmailTextFromViewModel get emailViewModel;
+  EmailFormViewModel get emailViewModel;
   @override
-  PasswordTextFromViewModel get passwordViewModel;
+  PasswordFormViewModel get passwordViewModel;
   @override
-  RepeatPasswordTextFromViewModel get repeatPasswordFromViewModel;
+  PasswordFormViewModel get repeatPasswordFromViewModel;
   @override
   RegistrationStatus get status;
   @override

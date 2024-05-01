@@ -15,32 +15,32 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$PasswordTextFromViewModel {
+mixin _$PasswordFormViewModel {
   String get value => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
   bool get isObscured => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PasswordTextFromViewModelCopyWith<PasswordTextFromViewModel> get copyWith =>
+  $PasswordFormViewModelCopyWith<PasswordFormViewModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PasswordTextFromViewModelCopyWith<$Res> {
-  factory $PasswordTextFromViewModelCopyWith(PasswordTextFromViewModel value,
-          $Res Function(PasswordTextFromViewModel) then) =
-      _$PasswordTextFromViewModelCopyWithImpl<$Res, PasswordTextFromViewModel>;
+abstract class $PasswordFormViewModelCopyWith<$Res> {
+  factory $PasswordFormViewModelCopyWith(PasswordFormViewModel value,
+          $Res Function(PasswordFormViewModel) then) =
+      _$PasswordFormViewModelCopyWithImpl<$Res, PasswordFormViewModel>;
   @useResult
   $Res call(
       {String value, String? errorMessage, bool isValid, bool isObscured});
 }
 
 /// @nodoc
-class _$PasswordTextFromViewModelCopyWithImpl<$Res,
-        $Val extends PasswordTextFromViewModel>
-    implements $PasswordTextFromViewModelCopyWith<$Res> {
-  _$PasswordTextFromViewModelCopyWithImpl(this._value, this._then);
+class _$PasswordFormViewModelCopyWithImpl<$Res,
+        $Val extends PasswordFormViewModel>
+    implements $PasswordFormViewModelCopyWith<$Res> {
+  _$PasswordFormViewModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,12 +77,12 @@ class _$PasswordTextFromViewModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PasswordTextFromViewModelImplCopyWith<$Res>
-    implements $PasswordTextFromViewModelCopyWith<$Res> {
-  factory _$$PasswordTextFromViewModelImplCopyWith(
-          _$PasswordTextFromViewModelImpl value,
-          $Res Function(_$PasswordTextFromViewModelImpl) then) =
-      __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>;
+abstract class _$$PasswordFormViewModelImplCopyWith<$Res>
+    implements $PasswordFormViewModelCopyWith<$Res> {
+  factory _$$PasswordFormViewModelImplCopyWith(
+          _$PasswordFormViewModelImpl value,
+          $Res Function(_$PasswordFormViewModelImpl) then) =
+      __$$PasswordFormViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -90,13 +90,12 @@ abstract class _$$PasswordTextFromViewModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>
-    extends _$PasswordTextFromViewModelCopyWithImpl<$Res,
-        _$PasswordTextFromViewModelImpl>
-    implements _$$PasswordTextFromViewModelImplCopyWith<$Res> {
-  __$$PasswordTextFromViewModelImplCopyWithImpl(
-      _$PasswordTextFromViewModelImpl _value,
-      $Res Function(_$PasswordTextFromViewModelImpl) _then)
+class __$$PasswordFormViewModelImplCopyWithImpl<$Res>
+    extends _$PasswordFormViewModelCopyWithImpl<$Res,
+        _$PasswordFormViewModelImpl>
+    implements _$$PasswordFormViewModelImplCopyWith<$Res> {
+  __$$PasswordFormViewModelImplCopyWithImpl(_$PasswordFormViewModelImpl _value,
+      $Res Function(_$PasswordFormViewModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +106,7 @@ class __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>
     Object? isValid = null,
     Object? isObscured = null,
   }) {
-    return _then(_$PasswordTextFromViewModelImpl(
+    return _then(_$PasswordFormViewModelImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -130,8 +129,8 @@ class __$$PasswordTextFromViewModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordTextFromViewModelImpl implements _PasswordTextFromViewModel {
-  const _$PasswordTextFromViewModelImpl(
+class _$PasswordFormViewModelImpl implements _PasswordFormViewModel {
+  const _$PasswordFormViewModelImpl(
       {this.value = '',
       this.errorMessage,
       this.isValid = true,
@@ -151,14 +150,14 @@ class _$PasswordTextFromViewModelImpl implements _PasswordTextFromViewModel {
 
   @override
   String toString() {
-    return 'PasswordTextFromViewModel(value: $value, errorMessage: $errorMessage, isValid: $isValid, isObscured: $isObscured)';
+    return 'PasswordFormViewModel(value: $value, errorMessage: $errorMessage, isValid: $isValid, isObscured: $isObscured)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PasswordTextFromViewModelImpl &&
+            other is _$PasswordFormViewModelImpl &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
@@ -174,17 +173,17 @@ class _$PasswordTextFromViewModelImpl implements _PasswordTextFromViewModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PasswordTextFromViewModelImplCopyWith<_$PasswordTextFromViewModelImpl>
-      get copyWith => __$$PasswordTextFromViewModelImplCopyWithImpl<
-          _$PasswordTextFromViewModelImpl>(this, _$identity);
+  _$$PasswordFormViewModelImplCopyWith<_$PasswordFormViewModelImpl>
+      get copyWith => __$$PasswordFormViewModelImplCopyWithImpl<
+          _$PasswordFormViewModelImpl>(this, _$identity);
 }
 
-abstract class _PasswordTextFromViewModel implements PasswordTextFromViewModel {
-  const factory _PasswordTextFromViewModel(
+abstract class _PasswordFormViewModel implements PasswordFormViewModel {
+  const factory _PasswordFormViewModel(
       {final String value,
       final String? errorMessage,
       final bool isValid,
-      final bool isObscured}) = _$PasswordTextFromViewModelImpl;
+      final bool isObscured}) = _$PasswordFormViewModelImpl;
 
   @override
   String get value;
@@ -196,6 +195,6 @@ abstract class _PasswordTextFromViewModel implements PasswordTextFromViewModel {
   bool get isObscured;
   @override
   @JsonKey(ignore: true)
-  _$$PasswordTextFromViewModelImplCopyWith<_$PasswordTextFromViewModelImpl>
+  _$$PasswordFormViewModelImplCopyWith<_$PasswordFormViewModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

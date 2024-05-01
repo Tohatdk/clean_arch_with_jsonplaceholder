@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:progress_bar/features/auth_feature/presentation/blocs/login_page_bloc/login_page_bloc.dart';
+import 'package:progress_bar/features/auth_feature/presentation/ui/screens/components/email_text_form_field.dart';
+import 'package:progress_bar/features/auth_feature/presentation/ui/screens/components/password_text_form_field.dart';
 import 'package:progress_bar/services/routes/app_route_paths.dart';
 
 class LoginPage extends StatefulWidget {
@@ -45,8 +47,7 @@ class _LoginPageState extends State<LoginPage> {
           print('show moadl loading');
         }
         if (state.status == LoginPageStatus.succeed) {
-          context.push(AppRoutePaths.loading);
-          print('navigate to home');
+          context.go(AppRoutePaths.homePageRoute.path);
         }
       },
       builder: (context, snapshot) {
@@ -61,25 +62,27 @@ class _LoginPageState extends State<LoginPage> {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextFormField(
+                    EmailTextFormField(
+                      viewModel: state.emailViewModel,
                       controller: emailEditingController,
-                      decoration: const InputDecoration(
-                          icon: Icon(Icons.email), hintText: "email"),
                     ),
-                    TextFormField(
+                    PasswordTextFormField(
                       controller: passwordEditingController,
-                      obscureText: passwordViewModel.isObscured,
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.security),
-                        hintText: "password",
-                      ),
+                      viewModel: passwordViewModel,
+                      onTap: (){
+                        bloc.add(TogglePasswordEvent());
+
+                      },
                     ),
                     const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            context.go(
+                                AppRoutePaths.forgotPasswordPageRoute.fullPath);
+                          },
                           child: const Text(
                             'Forgot password?',
                             style: TextStyle(
@@ -96,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: const Text("Login")),
                     ElevatedButton(
                       onPressed: () {
-                        context.push(AppRoutePaths.register);
+                        context.push(AppRoutePaths.registerPageRoute.fullPath);
                       },
                       child: const Text("Register"),
                     ),

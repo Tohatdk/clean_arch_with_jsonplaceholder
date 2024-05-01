@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'password_text_from_view_model.freezed.dart';
 @freezed
-class PasswordTextFromViewModel with _$PasswordTextFromViewModel{
-  const factory PasswordTextFromViewModel({
+class PasswordFormViewModel with _$PasswordFormViewModel{
+  const factory PasswordFormViewModel({
     @Default('') String value,
       String? errorMessage,
     @Default(true) bool isValid,
     @Default(true) bool isObscured,
-})=_PasswordTextFromViewModel;
+})=_PasswordFormViewModel;
 }

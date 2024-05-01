@@ -12,18 +12,24 @@ part 'login_page_event.dart';
 part 'login_page_state.dart';
 
 class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
-  LoginPageBloc({required SignInUsecase signInUseCase})
+  LoginPageBloc({required SignInUseCase signInUseCase})
       : _getLoginUseCase = signInUseCase,
         super(const LoginPageState()) {
     on<EmailTextFieldChangeEvent>(_onEmailChange);
     on<PasswordTextFieldChangeEvent>(_onPasswordChange);
     on<SignInSubmitEvent>(_onSignIn);
+    on<TogglePasswordEvent>((_, emit) {
+      final viewModel = state.passwordViewModel;
+      emit(state.copyWith(
+          passwordViewModel:
+          viewModel.copyWith(isObscured: !viewModel.isObscured)));
+    });
     on<ChangeStatusEvent>((event,emit){
       emit(state.copyWith(status: LoginPageStatus.none));
     });
   }
 
-  final SignInUsecase _getLoginUseCase;
+  final SignInUseCase _getLoginUseCase;
 
   Future<void> _onEmailChange(
       EmailTextFieldChangeEvent event, Emitter<LoginPageState> emit) async {

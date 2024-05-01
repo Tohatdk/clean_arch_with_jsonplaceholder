@@ -1,30 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:progress_bar/di_dart.dart';
-import 'package:progress_bar/services/routes/app_route_paths.dart';
-import 'package:progress_bar/src/domain/use_case/get_album_usecase.dart';
-import 'package:progress_bar/src/domain/use_case/get_comment_usecase.dart';
-import 'package:progress_bar/src/domain/use_case/get_photo_usecase.dart';
-import 'package:progress_bar/src/domain/use_case/get_post_uscase.dart';
-import 'package:progress_bar/src/domain/use_case/get_todo_usecase.dart';
-import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc.dart';
-import 'package:progress_bar/src/presentation/bloc/user_detalis_page_bloc/user_details_page_bloc.dart';
-import 'package:progress_bar/src/presentation/ui/pages/user_detalis_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.title});
+import 'package:progress_bar/services/routes/app_route_paths.dart';
+
+import 'package:progress_bar/src/presentation/bloc/home_page_bloc/home_page_bloc.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.title});
 
   final String title;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final loadingPageBloc = BlocProvider.of<HomePageBloc>(context);
+      loadingPageBloc.add( LoadingStartEvent()); // Исправляем на добавление константы
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
       ),
       body: BlocBuilder<HomePageBloc, HomePageState>(
         builder: (context, state) {
+          if(state.percent<100){
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        width: 200,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      Container(
+                        width: state.percent * 2,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      Positioned.fill(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '${state.percent}%', // Обновляем способ преобразования в строку
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ); //_loadingWidget
+          }
           if (state.isLoading) {
             // Если загрузка в процессе, отображаем индикатор загрузки
             return const Center(
@@ -47,7 +97,7 @@ class HomePage extends StatelessWidget {
                     title: Text(user.name,),
                     subtitle: Text(user.email),
                     onTap: () {
-                      context.go('${AppRoutePaths.loading}/${AppRoutePaths.home}/${AppRoutePaths.userDetails}',extra: user);
+                      context.push(AppRoutePaths.userDetailsPageRoute.fullPath,extra: user);
 
                     },
                   ),

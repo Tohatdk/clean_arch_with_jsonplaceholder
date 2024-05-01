@@ -15,30 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$EmailTextFromViewModel {
+mixin _$EmailFormViewModel {
   String get value => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $EmailTextFromViewModelCopyWith<EmailTextFromViewModel> get copyWith =>
+  $EmailFormViewModelCopyWith<EmailFormViewModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmailTextFromViewModelCopyWith<$Res> {
-  factory $EmailTextFromViewModelCopyWith(EmailTextFromViewModel value,
-          $Res Function(EmailTextFromViewModel) then) =
-      _$EmailTextFromViewModelCopyWithImpl<$Res, EmailTextFromViewModel>;
+abstract class $EmailFormViewModelCopyWith<$Res> {
+  factory $EmailFormViewModelCopyWith(
+          EmailFormViewModel value, $Res Function(EmailFormViewModel) then) =
+      _$EmailFormViewModelCopyWithImpl<$Res, EmailFormViewModel>;
   @useResult
   $Res call({String value, bool isValid, String? errorMessage});
 }
 
 /// @nodoc
-class _$EmailTextFromViewModelCopyWithImpl<$Res,
-        $Val extends EmailTextFromViewModel>
-    implements $EmailTextFromViewModelCopyWith<$Res> {
-  _$EmailTextFromViewModelCopyWithImpl(this._value, this._then);
+class _$EmailFormViewModelCopyWithImpl<$Res, $Val extends EmailFormViewModel>
+    implements $EmailFormViewModelCopyWith<$Res> {
+  _$EmailFormViewModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,25 +69,22 @@ class _$EmailTextFromViewModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EmailTextFromViewModelImplCopyWith<$Res>
-    implements $EmailTextFromViewModelCopyWith<$Res> {
-  factory _$$EmailTextFromViewModelImplCopyWith(
-          _$EmailTextFromViewModelImpl value,
-          $Res Function(_$EmailTextFromViewModelImpl) then) =
-      __$$EmailTextFromViewModelImplCopyWithImpl<$Res>;
+abstract class _$$EmailFormViewModelImplCopyWith<$Res>
+    implements $EmailFormViewModelCopyWith<$Res> {
+  factory _$$EmailFormViewModelImplCopyWith(_$EmailFormViewModelImpl value,
+          $Res Function(_$EmailFormViewModelImpl) then) =
+      __$$EmailFormViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value, bool isValid, String? errorMessage});
 }
 
 /// @nodoc
-class __$$EmailTextFromViewModelImplCopyWithImpl<$Res>
-    extends _$EmailTextFromViewModelCopyWithImpl<$Res,
-        _$EmailTextFromViewModelImpl>
-    implements _$$EmailTextFromViewModelImplCopyWith<$Res> {
-  __$$EmailTextFromViewModelImplCopyWithImpl(
-      _$EmailTextFromViewModelImpl _value,
-      $Res Function(_$EmailTextFromViewModelImpl) _then)
+class __$$EmailFormViewModelImplCopyWithImpl<$Res>
+    extends _$EmailFormViewModelCopyWithImpl<$Res, _$EmailFormViewModelImpl>
+    implements _$$EmailFormViewModelImplCopyWith<$Res> {
+  __$$EmailFormViewModelImplCopyWithImpl(_$EmailFormViewModelImpl _value,
+      $Res Function(_$EmailFormViewModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +94,7 @@ class __$$EmailTextFromViewModelImplCopyWithImpl<$Res>
     Object? isValid = null,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$EmailTextFromViewModelImpl(
+    return _then(_$EmailFormViewModelImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -117,8 +113,8 @@ class __$$EmailTextFromViewModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmailTextFromViewModelImpl implements _EmailTextFromViewModel {
-  const _$EmailTextFromViewModelImpl(
+class _$EmailFormViewModelImpl implements _EmailFormViewModel {
+  const _$EmailFormViewModelImpl(
       {this.value = '', this.isValid = true, this.errorMessage});
 
   @override
@@ -132,14 +128,14 @@ class _$EmailTextFromViewModelImpl implements _EmailTextFromViewModel {
 
   @override
   String toString() {
-    return 'EmailTextFromViewModel(value: $value, isValid: $isValid, errorMessage: $errorMessage)';
+    return 'EmailFormViewModel(value: $value, isValid: $isValid, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmailTextFromViewModelImpl &&
+            other is _$EmailFormViewModelImpl &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.isValid, isValid) || other.isValid == isValid) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -152,16 +148,16 @@ class _$EmailTextFromViewModelImpl implements _EmailTextFromViewModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmailTextFromViewModelImplCopyWith<_$EmailTextFromViewModelImpl>
-      get copyWith => __$$EmailTextFromViewModelImplCopyWithImpl<
-          _$EmailTextFromViewModelImpl>(this, _$identity);
+  _$$EmailFormViewModelImplCopyWith<_$EmailFormViewModelImpl> get copyWith =>
+      __$$EmailFormViewModelImplCopyWithImpl<_$EmailFormViewModelImpl>(
+          this, _$identity);
 }
 
-abstract class _EmailTextFromViewModel implements EmailTextFromViewModel {
-  const factory _EmailTextFromViewModel(
+abstract class _EmailFormViewModel implements EmailFormViewModel {
+  const factory _EmailFormViewModel(
       {final String value,
       final bool isValid,
-      final String? errorMessage}) = _$EmailTextFromViewModelImpl;
+      final String? errorMessage}) = _$EmailFormViewModelImpl;
 
   @override
   String get value;
@@ -171,6 +167,6 @@ abstract class _EmailTextFromViewModel implements EmailTextFromViewModel {
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$EmailTextFromViewModelImplCopyWith<_$EmailTextFromViewModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$EmailFormViewModelImplCopyWith<_$EmailFormViewModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

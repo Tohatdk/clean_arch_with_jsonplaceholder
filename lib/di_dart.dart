@@ -1,12 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http/http.dart';
 import 'package:progress_bar/features/auth_feature/data/data_source/account_data_source.dart';
 import 'package:progress_bar/features/auth_feature/data/repository/account_repository.dart';
 import 'package:progress_bar/features/auth_feature/domain/repository/account_repository.dart';
+import 'package:progress_bar/features/auth_feature/domain/usecase/confitm_password_reset_usecase.dart';
 import 'package:progress_bar/features/auth_feature/domain/usecase/logout_use_case.dart';
+import 'package:progress_bar/features/auth_feature/domain/usecase/send_reset_password_request_usecase.dart';
 import 'package:progress_bar/features/auth_feature/domain/usecase/sign_in_usecase.dart';
 import 'package:progress_bar/features/auth_feature/domain/usecase/get_register_usecase.dart';
+import 'package:progress_bar/features/auth_feature/presentation/blocs/forgot_password_page_bloc/forgot_password_page_bloc.dart';
+
 import 'package:progress_bar/src/data/data_sources/data_source.dart';
 import 'package:progress_bar/src/data/repository/album_repository.dart';
 import 'package:progress_bar/src/data/repository/comment_repository.dart';
@@ -58,10 +61,10 @@ void setup() {
   getIt.registerFactory<AccountRepository>(() => AccountRepositoryImpl(getIt.get<AccountDataSource>(), getIt.get<FirebaseAuth>()));
 
   ///authUseCases
-  getIt.registerFactory<SignInUsecase>(() => SignInUsecase(getIt.get<AccountRepository>()));
-  getIt.registerFactory<CreateUserUsecase>(() => CreateUserUsecase(getIt.get<AccountRepository>()));
- getIt.registerFactory<LogoutUseCase>(() => LogoutUseCase(getIt.get<AccountRepository>()));
- ///bloc
- getIt.registerSingleton<HomePageBloc>(HomePageBloc(getUsersUseCase:getIt.get<GetUsersUseCase>()));
-
+  getIt.registerFactory<SignInUseCase>(() => SignInUseCase(getIt.get<AccountRepository>()));
+  getIt.registerFactory<CreateUserUseCase>(() => CreateUserUseCase(getIt.get<AccountRepository>()));
+  getIt.registerFactory<LogoutUseCase>(() => LogoutUseCase(getIt.get<AccountRepository>()));
+  getIt.registerFactory<SendResetPasswordRequestUseCase>(() => SendResetPasswordRequestUseCase(getIt.get<AccountRepository>()));
+  getIt.registerFactory<ConfirmPasswordUseCase>(() => ConfirmPasswordUseCase(getIt.get<AccountRepository>()));
+ ///bloc..getIt.registerSingleton<ForgotPasswordPageBloc>(ForgotPasswordPageBloc(signInUseCase: getIt.get<SignInUseCase>()));
 }

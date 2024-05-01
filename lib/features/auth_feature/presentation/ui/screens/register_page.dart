@@ -1,15 +1,14 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:progress_bar/di_dart.dart';
-import 'package:progress_bar/features/auth_feature/domain/usecase/get_register_usecase.dart';
+
 import 'package:progress_bar/features/auth_feature/presentation/blocs/register_page_bloc/register_page_bloc.dart';
+import 'package:progress_bar/features/auth_feature/presentation/ui/screens/components/email_text_form_field.dart';
+import 'package:progress_bar/features/auth_feature/presentation/ui/screens/components/password_text_form_field.dart';
+import 'package:progress_bar/features/auth_feature/presentation/ui/screens/components/show_filure.dart';
 import 'package:progress_bar/services/routes/app_route_paths.dart';
-import 'package:rxdart/rxdart.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -20,8 +19,10 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailEditingController = TextEditingController();
-  final TextEditingController passwordEditingController = TextEditingController();
-  final TextEditingController confirmPasswordEditingController = TextEditingController();
+  final TextEditingController passwordEditingController =
+  TextEditingController();
+  final TextEditingController confirmPasswordEditingController =
+  TextEditingController();
 
   @override
   void initState() {
@@ -48,29 +49,33 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     final bloc = context.read<RegisterPageBloc>();
     return BlocListener<RegisterPageBloc, RegisterPageState>(
-      listenWhen: (context, oldState){
+      listenWhen: (context, oldState) {
         return oldState.status != RegistrationStatus.none;
       },
       listener: (BuildContext context, state) {
-        switch(state.status){
+        switch (state.status) {
           case RegistrationStatus.loading:
             context.loaderOverlay.show();
           case RegistrationStatus.failure:
             context.loaderOverlay.hide();
-            showDialog(context: context, builder: (context){
-              return AlertDialog(
-                content: Text(state.message),
-                actions: [
-                  TextButton(onPressed: (){
-                    bloc.add(const RegisterPageEvent.clearErrors());
-                    context.pop();
-                  }, child: const Text('OK'))
-                ],
-              );
-            });
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Text(state.message),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            bloc.add(const RegisterPageEvent.clearErrors());
+                            context.pop();
+                          },
+                          child: const Text('OK'))
+                    ],
+                  );
+                });
           case RegistrationStatus.succeed:
             context.loaderOverlay.hide();
-            context.go(AppRoutePaths.loading);
+            context.go(AppRoutePaths.homePageRoute.path);
           case RegistrationStatus.none:
         }
       },
@@ -79,63 +84,45 @@ class _RegisterPageState extends State<RegisterPage> {
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: BlocBuilder<RegisterPageBloc, RegisterPageState>(
               builder: (context, state) {
-            final emailViewModel = state.emailViewModel;
-            final passwordViewModel = state.passwordViewModel;
-            final confirmPasswordViewModel = state.repeatPasswordFromViewModel;
-            final bloc = context.read<RegisterPageBloc>();
+                final emailViewModel = state.emailViewModel;
+                final passwordViewModel = state.passwordViewModel;
+                final confirmPasswordViewModel = state
+                    .repeatPasswordFromViewModel;
+                final bloc = context.read<RegisterPageBloc>();
 
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Register Page'),
-                TextFormField(
-                  controller: emailEditingController,
-                  decoration: InputDecoration(
-                    errorText: emailViewModel.errorMessage,
-                      icon: const Icon(Icons.email), labelText: "Введите email"),
-                ),
-                TextFormField(
-                  controller: passwordEditingController,
-                  obscureText: passwordViewModel.isObscured,
-                  decoration: InputDecoration(
-                    labelText: "Введите пароль",
-                    errorText: passwordViewModel.errorMessage,
-                    suffixIcon: IconButton(
-                      onPressed: () {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Register Page'),
+                    EmailTextFormField(
+                      viewModel: emailViewModel,
+                      controller: emailEditingController,
+                    ),
+                    PasswordTextFormField(
+                      controller: passwordEditingController,
+                      viewModel: passwordViewModel,
+                      onTap: () {
                         bloc.add(const RegisterPageEvent.togglePassword());
                       },
-                      icon: const Icon(Icons.remove_red_eye_outlined),
                     ),
-                  ),
-                ),
-                TextFormField(
-                  controller: confirmPasswordEditingController,
-                  onChanged: (confirmationPassword) {
-                    context.read<RegisterPageBloc>().add(
-                        RegisterPageEvent.editConfirmationPassword(
-                            confirmationPassword));
-                  },
-                  obscureText: confirmPasswordViewModel.isObscured,
-                  decoration: InputDecoration(
-                    errorText: confirmPasswordViewModel.errorMessage,
-                    hintText: "Подвтердите паоль",
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        bloc.add(
-                            const RegisterPageEvent.toggleConfirmationPassword());
+                    PasswordTextFormField(
+                      controller: confirmPasswordEditingController,
+                      viewModel: confirmPasswordViewModel,
+                      hint: "Подвтердите пароль",
+                      onTap: () {
+                        bloc.add(const RegisterPageEvent
+                            .toggleConfirmationPassword());
                       },
-                      icon: const Icon(Icons.remove_red_eye_outlined),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () => bloc.add(const RegisterPageEvent.sendData()),
-                  child: const Text("Register"),
-                ),
-              ],
-            );
-          }),
+                    const SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () =>
+                          bloc.add(const RegisterPageEvent.sendData()),
+                      child: const Text("Register"),
+                    ),
+                  ],
+                );
+              }),
         ),
       ),
     );

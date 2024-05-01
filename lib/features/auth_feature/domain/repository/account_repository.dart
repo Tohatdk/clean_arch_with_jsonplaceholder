@@ -6,4 +6,6 @@ abstract interface class AccountRepository{
  Future<AccountEntity?> createUser({ required String email,
   required String password,});
  Future<void> signOut();
+Future<void>confirmPassword({required String newPassword,required String code});
+ Future<void>sendResetPassword({required String email});
  }

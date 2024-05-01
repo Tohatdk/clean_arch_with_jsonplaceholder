@@ -2,11 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'email_text_from_view_model.freezed.dart';
 
 @freezed
-class EmailTextFromViewModel with _$EmailTextFromViewModel{
-  const factory EmailTextFromViewModel({
+class EmailFormViewModel with _$EmailFormViewModel{
+  const factory EmailFormViewModel({
     @Default('') String value,
   @Default(true) bool isValid,
   String? errorMessage,
-})=_EmailTextFromViewModel;
+})=_EmailFormViewModel;
 
 }
