@@ -22,8 +22,8 @@ class FirebaseNotificationService{
         localNotifications.showSimpleNotification(title:  notification.title??'', body:  notification.body??'', payload: 'hz che eto');
       }
     });
-    final fcmToken = await FirebaseMessaging.instance.getToken();
-    print('Message token: $fcmToken');
+    // final fcmToken = await FirebaseMessaging.instance.getToken();
+    // print('Message token: $fcmToken');
   }
 
   Future<void> _requestNotificationPermission() async {
